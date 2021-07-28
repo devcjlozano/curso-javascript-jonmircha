@@ -4,40 +4,149 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundamentos Javascript</title>
+    <title>Fundamentos JavaScript</title>
   </head>
 
   <body>
-    <h1>Fundamentos Javascript</h1>
+    <h1>Fundamentos JavaScript</h1>
     <script>
-      var hola = "Hola mundo";
-      let hello = "Hello World";
-      console.log(hola);
-      console.log(hello);
-      console.log(window);
-      console.log(window.hola);
-      console.log(window.hello);
+      // var hola = "Hola mundo";
+      // let hello = "Hello World";
+      // console.log(hola);
+      // console.log(hello);
+      // console.log(window);
+      // console.log(window.hola);
+      // console.log(window.hello);
 
-      // Ámbito de bloque
-      console.log("*****************var*****************");
-      var musica = "Rock";
-      console.log("Variable música antes del bloque", musica);
-      // Esto es un bloque
-      {
-        var musica = "Pop";
-        console.log("Variable música dentro del bloque", musica);
-      }
-      console.log("Variable música después del bloque", musica);
+      // // Ámbito de bloque
+      // console.log("*****************var*****************");
+      // var musica = "Rock";
+      // console.log("Variable música antes del bloque", musica);
+      // // Esto es un bloque
+      // {
+      //   var musica = "Pop";
+      //   console.log("Variable música dentro del bloque", musica);
+      // }
+      // console.log("Variable música después del bloque", musica);
 
-      console.log("*****************let*****************");
-      let musica2 = "Rock";
-      console.log("Variable música2 antes del bloque", musica2);
-      // Esto es un bloque
-      {
-        let musica2 = "Pop";
-        console.log("Variable música2 dentro del bloque", musica2);
-      }
-      console.log("Variable música 2 después del bloque", musica2);
+      // console.log("*****************let*****************");
+      // let musica2 = "Rock";
+      // console.log("Variable música2 antes del bloque", musica2);
+      // // Esto es un bloque
+      // {
+      //   let musica2 = "Pop";
+      //   console.log("Variable música2 dentro del bloque", musica2);
+      // }
+      // console.log("Variable música 2 después del bloque", musica2);
+
+      // let a;
+      // const PI = 3.1416;
+      // //const NUEVE;
+      // console.log(PI);
+      // // PI = 3.15;
+
+      // a = "cosmo";
+      // console.log(a);
+
+      // const objeto = {
+      //   nombre: "Carlos Javier",
+      //   edad: 34,
+      // };
+
+      // const colores = ["blanco", "negro", "azul"];
+
+      // console.log(objeto);
+      // console.log(colores);
+
+      // objeto.correo = "carlosjlp@gmail.com";
+      // colores.push("naranja");
+
+      // console.log(objeto);
+      // console.log(colores);
+
+      //*********** Cadenas de texto aka Strings **********
+
+      // let nombre = "Carlos Javier";
+      // let apellido = "Lozano";
+      // let saludo = new String("Hola Mundo");
+      // let lorem = `Jamón ipsum bonachón camello fabada las tortilla litros, no
+      //   pega ojo el corral pinchito pero cotilla bingo piñazo la
+      //   flamenco chiquilla. Maruja ipsum los quinto pino enchufe
+      //   pero friolero. Patata con Lepe Alonso caramba a bailarán
+      //   salmorejo comino mis piripi y liándola parda ancha es Castilla.
+      //   Tapas, ligar las cómplice el armario bonachón pero un fregona
+      //   nuestra comunidad posturitas sangre fría.`;
+
+      // console.log(nombre, apellido, saludo);
+      // console.log(
+      //   nombre.length,
+      //   apellido.length,
+      //   saludo.length,
+      //   nombre.toUpperCase(),
+      //   apellido.toLowerCase(),
+      //   lorem.includes("ipsum"),
+      //   lorem.includes("carlos"),
+      //   lorem.trim(),
+      //   lorem.split(" "),
+      //   lorem.split(",")
+      // );
+
+      // *** Concatenación ***
+
+      // let nombre = "Carlos Javier";
+      // let apellido = "Lozano Pérez";
+
+      // let saludo = "Hola mi nombre es " + nombre + " " + apellido + ".";
+      // console.log(saludo);
+
+      // // Interpolación de variables
+      // // Template String
+
+      // let saludo2 = `Hola mi nombre es ${nombre} ${apellido}.`;
+      // console.log(saludo2);
+
+      // let ul =
+      //   "<ul><li>Primavera</li><li>Verano</li><li>Otoño</li><li>Invierno</li></ul>";
+
+      // console.log(ul);
+
+      // let ul2 = `
+      //   <ul>
+      //     <li>Primavera</li>
+      //     <li>Verano</li>
+      //     <li>Otoño</li>
+      //     <li>Invierno</li>
+      //   </ul>`;
+
+      // console.log(ul2);
+
+      // let ul3 = "<ul>";
+      // ul3 += "<li>Primavera</li>";
+      // ul3 += "<li>Verano</li>";
+      // ul3 += "<li>Otoño</li>";
+      // ul3 += "<li>Invierno</li>";
+      // ul3 += "<ul>";
+
+      // console.log(ul3);
+
+      // ********** Number ***********
+
+      let a = 2;
+      let b = new Number(1);
+      let c = 7.19;
+      let d = "5.6";
+
+      console.log(a, b);
+      console.log(c.toFixed(1));
+      console.log(c.toFixed(5));
+      console.log(parseInt(c));
+      console.log(parseFloat(c));
+      console.log(typeof c, typeof d);
+      console.log(a + b);
+      console.log(c + parseInt(d));
+      console.log(c + parseFloat(d));
+      console.log(c + Number.parseInt(d));
+      console.log(c + Number.parseFloat(d));
     </script>
   </body>
 </html>
