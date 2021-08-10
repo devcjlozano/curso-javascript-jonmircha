@@ -190,45 +190,132 @@
       // estoEsUnaFuncion();
       // estoEsUnaFuncion();
 
-      function unaFuncionQueDevuelveValor() {
-        console.log("Uno");
-        return 19;
-        console.log("Dos");
-        console.log("Tres");
-        return "La función ha retornado una cadena de texto";
-      }
+      // function unaFuncionQueDevuelveValor() {
+      //   console.log("Uno");
+      //   return 19;
+      //   console.log("Dos");
+      //   console.log("Tres");
+      //   return "La función ha retornado una cadena de texto";
+      // }
 
-      // const valorDeFuncion = unaFuncionQueDevuelveValor();
-      // console.log(valorDeFuncion);
+      // // const valorDeFuncion = unaFuncionQueDevuelveValor();
+      // // console.log(valorDeFuncion);
 
-      function saludar(nombre = "Desconocido", edad = 0) {
-        console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
-      }
+      // function saludar(nombre = "Desconocido", edad = 0) {
+      //   console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
+      // }
 
-      // saludar("Cosmo", 5);
-      // saludar();
+      // // saludar("Cosmo", 5);
+      // // saludar();
 
-      //Funciones declaradas VS funciones expresadas
+      // //Funciones declaradas VS funciones expresadas
 
-      funcionDeclarada();
+      // funcionDeclarada();
 
-      function funcionDeclarada() {
-        console.log(
-          "Esto es una función declarada, puede invocarse encualquier parte de nuestro código, incluso antes de que la función sea declarada"
-        );
-      }
+      // function funcionDeclarada() {
+      //   console.log(
+      //     "Esto es una función declarada, puede invocarse encualquier parte de nuestro código, incluso antes de que la función sea declarada"
+      //   );
+      // }
 
-      funcionDeclarada();
+      // funcionDeclarada();
 
-      //Función anónima
+      // //Función anónima
 
+      // // funcionExpresada();
+      // const funcionExpresada = function () {
+      //   console.log(
+      //     "Esto es una función expresada, es decir, una función que se le ha asignado como valor a un variable, si invocamos esta función antes de su definición, javascript nos dirá...Cannot access 'funcionExpresada' before initialization"
+      //   );
+      // };
       // funcionExpresada();
-      const funcionExpresada = function () {
-        console.log(
-          "Esto es una función expresada, es decir, una función que se le ha asignado como valor a un variable, si invocamos esta función antes de su definición, javascript nos dirá...Cannot access 'funcionExpresada' before initialization"
-        );
+
+      //*************************** Arrays o arreglos *******************************
+
+      // const a = [];
+      // const b = [1, true, "Hola", ["A", "B", "C", [1, 2, 3]]];
+      // console.log(a);
+      // console.log(b);
+      // console.log(b.length);
+      // console.log(b[2]);
+      // console.log(b[0]);
+      // console.log(b[3]);
+      // console.log(b[3][2]);
+      // console.log(b[3][3][0]);
+
+      // const c = Array.of("X", "Y", "Z", 9, 8, 7);
+      // console.log(c);
+
+      // const d = Array(100).fill(false);
+      // console.log(d);
+
+      // const e = new Array(); // Ya casi nadie usa esa forma para declarar arrays
+      // console.log(e);
+
+      // const f = new Array(1, 2, 3, true, false);
+      // console.log(f);
+
+      // const colores = ["Rojo", "Verde", "Azul"];
+      // console.log(colores);
+
+      // colores.push("Negro");
+      // console.log(colores);
+
+      // colores.pop();
+      // console.log(colores);
+
+      // colores.forEach(function (color, index) {
+      //   console.log(`<li id="${index}">${color}</li>`);
+      // });
+
+      // ********************************* Objetos *********************************************
+
+      const b = {};
+      console.log(b);
+
+      const c = new Object(); // Casi nadie usa esta forma para declarar objetos
+      console.log(c);
+
+      /* Dentro de un objeto a las variables se
+       les llama propiedades/atributos y a las funciones
+       se les llama métodos */
+      const carlosj = {
+        nombre: "Carlos",
+        apellido: "Lozano",
+        edad: 34,
+        pasatiempos: ["Correr", "Hacer ejercicio", "Programación"],
+        soltero: false,
+        contacto: {
+          email: "carlosjlp@gmail.com",
+          twitter: "@carlosjlp",
+          movil: "455453221",
+        },
+        saludar: function () {
+          console.log("Hola");
+        },
+        decirMiNombre: function () {
+          console.log(`Hola me llamo ${this.nombre} ${this.apellido} años y me
+          puedes seguir como ${this.contacto.twitter} en twitter`);
+        },
       };
-      funcionExpresada();
+      console.log(carlosj);
+      console.log(carlosj["nombre"]);
+      console.log(carlosj["apellido"]);
+      console.log(carlosj.nombre);
+      console.log(carlosj.apellido);
+      console.log(carlosj.edad);
+      console.log(carlosj.soltero);
+      console.log(carlosj.pasatiempos);
+      console.log(carlosj.pasatiempos[1]);
+      console.log(carlosj.contacto);
+      console.log(carlosj.contacto.twitter);
+      carlosj.saludar();
+      carlosj.decirMiNombre();
+
+      console.log(Object.keys(carlosj));
+      console.log(Object.values(carlosj));
+      console.log(carlosj.hasOwnProperty("nombre"));
+      console.log(carlosj.hasOwnProperty("nacimiento"));
     </script>
   </body>
 </html>
