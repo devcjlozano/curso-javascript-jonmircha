@@ -544,21 +544,132 @@
 
       // *********************** BREAK Y CONTINUE **************************
 
-      const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      // const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-      for (let i = 0; i < numeros.length; i++) {
-        if (i === 5) {
-          break;
-        }
-        console.log(numeros[i]);
-      }
+      // for (let i = 0; i < numeros.length; i++) {
+      //   if (i === 5) {
+      //     break;
+      //   }
+      //   console.log(numeros[i]);
+      // }
 
-      for (let i = 0; i < numeros.length; i++) {
-        if (i === 5) {
-          continue;
-        }
-        console.log(numeros[i]);
-      }
+      // for (let i = 0; i < numeros.length; i++) {
+      //   if (i === 5) {
+      //     continue;
+      //   }
+      //   console.log(numeros[i]);
+      // }
+
+      // ************************** DESESTRUCTURACIÓN *************************
+
+      // Arrays
+
+      // const numeros = [1, 2, 3];
+      // let [uno, dos, tres] = numeros;
+
+      // console.log(uno, dos, tres);
+
+      // // Objetos
+      // const persona = {
+      //   nombre: "Carlos Javier",
+      //   apellido: "Lozano",
+      //   edad: 35,
+      // };
+
+      // const { nombre, apellido, edad } = persona;
+      // console.log(nombre, apellido, edad);
+
+      // *************************** Objetos literales *************************
+
+      // let nombre = "Cosmo";
+      // let edad = 5;
+
+      // //Manera tradicional
+      // const perro = {
+      //   nombre: nombre,
+      //   edad: edad,
+      //   ladrar: function () {
+      //     console.log("guauuuu guauuuu");
+      //   },
+      // };
+      // console.log(perro);
+      // perro.ladrar();
+
+      // // Con la nueva característica de ES6
+      // const dog = {
+      //   nombre,
+      //   edad,
+      //   raza: "Callejero",
+      //   ladrar() {
+      //     console.log("guauuuuu guauuuu guauuuu");
+      //   },
+      // };
+
+      // console.log(dog);
+      // dog.ladrar();
+
+      // *************************** Parámetros Rest y Spread operator *********************
+
+      // // Parámetros rest
+      // function sumar(a, b, ...c) {
+      //   let resultado = a + b;
+      //   c.forEach(function (n) {
+      //     resultado += n;
+      //   });
+
+      //   return resultado;
+      // }
+      // console.log(sumar(1, 2));
+      // console.log(sumar(1, 2, 3));
+      // console.log(sumar(1, 2, 3, 4));
+      // console.log(sumar(1, 2, 3, 4, 5));
+      // console.log(sumar(1, 2, 3, 4, 5, 6));
+      // console.log(sumar(1, 2, 3, 4, 5, 6, 7));
+
+      // // Spread operator
+
+      // const arr1 = [1, 2, 3, 4, 5];
+      // const arr2 = [5, 6, 7, 8, 9];
+
+      // console.log(arr1, arr2);
+
+      // const arr3 = [...arr1, ...arr2];
+      // console.log(arr3);
+
+      // ************************** Arrow functions ************************
+
+      // const saludar = () => console.log("Hola");
+      const saludar = (nombre) => console.log(`Hola ${nombre}`);
+
+      const sumar = (a, b) => a + b;
+
+      saludar("Innma");
+      console.log(sumar(2, 4));
+
+      const funcionDeVariasLineas = () => {
+        console.log("Uno");
+        console.log("Dos");
+        console.log("Tres");
+      };
+
+      funcionDeVariasLineas();
+
+      const numeros = [1, 2, 3, 4, 5];
+      numeros.forEach((numero, index) =>
+        console.log(`${numero} está en la posición ${index}`)
+      );
+
+      // function perro() {
+      //   console.log(this);
+      // }
+
+      const gato = {
+        nombre: "Cosmo",
+        maullar: () => {
+          console.log(this);
+        },
+      };
+      gato.maullar();
     </script>
   </body>
 </html>
