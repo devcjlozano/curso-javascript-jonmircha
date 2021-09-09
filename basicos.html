@@ -701,54 +701,123 @@
 
       // Función constructora
 
-      function Animal(nombre, genero) {
-        // Atributos
-        this.nombre = nombre;
-        this.genero = genero;
+      // function Animal(nombre, genero) {
+      //   // Atributos
+      //   this.nombre = nombre;
+      //   this.genero = genero;
+      // }
+
+      // // Métodos agtegados al prototipo de la función constructora
+      // Animal.prototype.sonar = function () {
+      //   console.log("Hago sonidos porque estoy vivo");
+      // };
+
+      // Animal.prototype.saludar = function () {
+      //   console.log(`Hola me llamo ${this.nombre}`);
+      // };
+
+      // // Herencia prototípica
+
+      // function Perro(nombre, genero, tamanio) {
+      //   this.super = Animal;
+      //   this.super(nombre, genero);
+      //   this.tamanio = tamanio;
+      // }
+
+      // // Perro está heredando de animal
+      // Perro.prototype = new Animal();
+      // Perro.prototype.constructor = Perro;
+
+      // // Sobreescritura de métodos del Prototipo padre en el hijo
+
+      // Perro.prototype.sonar = function () {
+      //   console.log("Soy un perro y mi sonido es un ladrido");
+      // };
+
+      // Perro.prototype.ladrar = function () {
+      //   console.log("Guauu Guauuu!!!");
+      // };
+
+      // const snoopy = new Perro("Snoopy", "Masculino", "Mediano");
+      // const lolaBunny = new Animal("Lola Bunny", "Femenino");
+      // console.log(snoopy);
+      // console.log(lolaBunny);
+
+      // snoopy.sonar();
+      // snoopy.saludar();
+      // snoopy.ladrar();
+
+      // lolaBunny.sonar();
+      // lolaBunny.saludar();
+
+      // **************************** Clases y herencia ******************************
+
+      class Animal {
+        //Es constructor de una clase es un método espcial que se ejecuta en el momento de instanciar la clase
+        constructor(nombre, genero) {
+          this.nombre = nombre;
+          this.genero = genero;
+        }
+
+        // Métodos
+        sonar() {
+          console.log("Hago sonidos por que estoy vivo");
+        }
+        saludar() {
+          console.log(`Hola me llamo ${this.nombre}`);
+        }
       }
 
-      // Métodos agtegados al prototipo de la función constructora
-      Animal.prototype.sonar = function () {
-        console.log("Hago sonidos porque estoy vivo");
-      };
+      class Perro extends Animal {
+        constructor(nombre, genero, tamanio) {
+          super(nombre, genero);
+          this.tamanio = tamanio;
+          this.raza = null;
+        }
+        sonar() {
+          console.log("Soy un perro y mi sonido es un ladrido");
+        }
 
-      Animal.prototype.saludar = function () {
-        console.log(`Hola me llamo ${this.nombre}`);
-      };
+        ladrar() {
+          console.log("Guauuu Guauuuu!!!");
+        }
 
-      // Herencia prototípica
+        // Un método estático se puede ejecutar sin necesidad de instanciar la clase
 
-      function Perro(nombre, genero, tamanio) {
-        this.super = Animal;
-        this.super(nombre, genero);
-        this.tamanio = tamanio;
+        static queEres() {
+          console.log(
+            "Los perros somos animales mamíferos que pertenecemos a la familia de los caninos. Somos considerados los mejores amigos del hombre"
+          );
+        }
+
+        /* 
+         Los setters y getters son métodos especiales que nos permiten
+         establecer y obtener los valores de atributos de nuestra clase */
+
+        get getRaza() {
+          return this.raza;
+        }
+        set setRaza(raza) {
+          this.raza = raza;
+        }
       }
 
-      // Perro está heredando de animal
-      Perro.prototype = new Animal();
-      Perro.prototype.constructor = Perro;
+      Perro.queEres();
 
-      // Sobreescritura de métodos del Prototipo padre en el hijo
+      const mimi = new Animal("Mimi", "Hembra");
+      const scooby = new Perro("Scooby", "Macho", "Gigante");
 
-      Perro.prototype.sonar = function () {
-        console.log("Soy un perro y mi sonido es un ladrido");
-      };
+      console.log(mimi);
+      mimi.saludar();
+      mimi.sonar();
+      console.log(scooby);
+      scooby.saludar();
+      scooby.sonar();
+      scooby.ladrar();
 
-      Perro.prototype.ladrar = function () {
-        console.log("Guauu Guauuu!!!");
-      };
-
-      const snoopy = new Perro("Snoopy", "Masculino", "Mediano");
-      const lolaBunny = new Animal("Lola Bunny", "Femenino");
-      console.log(snoopy);
-      console.log(lolaBunny);
-
-      snoopy.sonar();
-      snoopy.saludar();
-      snoopy.ladrar();
-
-      lolaBunny.sonar();
-      lolaBunny.saludar();
+      console.log(scooby.getRaza);
+      scooby.setRaza = "Gran danés";
+      console.log(scooby.getRaza);
     </script>
   </body>
 </html>
