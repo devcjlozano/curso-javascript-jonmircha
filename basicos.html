@@ -752,72 +752,225 @@
 
       // **************************** Clases y herencia ******************************
 
-      class Animal {
-        //Es constructor de una clase es un método espcial que se ejecuta en el momento de instanciar la clase
-        constructor(nombre, genero) {
-          this.nombre = nombre;
-          this.genero = genero;
-        }
+      // class Animal {
+      //   //Es constructor de una clase es un método espcial que se ejecuta en el momento de instanciar la clase
+      //   constructor(nombre, genero) {
+      //     this.nombre = nombre;
+      //     this.genero = genero;
+      //   }
 
-        // Métodos
-        sonar() {
-          console.log("Hago sonidos por que estoy vivo");
-        }
-        saludar() {
-          console.log(`Hola me llamo ${this.nombre}`);
-        }
-      }
+      //   // Métodos
+      //   sonar() {
+      //     console.log("Hago sonidos por que estoy vivo");
+      //   }
+      //   saludar() {
+      //     console.log(`Hola me llamo ${this.nombre}`);
+      //   }
+      // }
 
-      class Perro extends Animal {
-        constructor(nombre, genero, tamanio) {
-          super(nombre, genero);
-          this.tamanio = tamanio;
-          this.raza = null;
-        }
-        sonar() {
-          console.log("Soy un perro y mi sonido es un ladrido");
-        }
+      // class Perro extends Animal {
+      //   constructor(nombre, genero, tamanio) {
+      //     super(nombre, genero);
+      //     this.tamanio = tamanio;
+      //     this.raza = null;
+      //   }
+      //   sonar() {
+      //     console.log("Soy un perro y mi sonido es un ladrido");
+      //   }
 
-        ladrar() {
-          console.log("Guauuu Guauuuu!!!");
-        }
+      //   ladrar() {
+      //     console.log("Guauuu Guauuuu!!!");
+      //   }
 
-        // Un método estático se puede ejecutar sin necesidad de instanciar la clase
+      //   // ***************************** Métodos estáticos, getters y setters **********************************
 
-        static queEres() {
-          console.log(
-            "Los perros somos animales mamíferos que pertenecemos a la familia de los caninos. Somos considerados los mejores amigos del hombre"
-          );
-        }
+      //   // Un método estático se puede ejecutar sin necesidad de instanciar la clase
 
-        /* 
-         Los setters y getters son métodos especiales que nos permiten
-         establecer y obtener los valores de atributos de nuestra clase */
+      //   static queEres() {
+      //     console.log(
+      //       "Los perros somos animales mamíferos que pertenecemos a la familia de los caninos. Somos considerados los mejores amigos del hombre"
+      //     );
+      //   }
 
-        get getRaza() {
-          return this.raza;
-        }
-        set setRaza(raza) {
-          this.raza = raza;
-        }
-      }
+      //   /*
+      //    Los setters y getters son métodos especiales que nos permiten
+      //    establecer y obtener los valores de atributos de nuestra clase */
 
-      Perro.queEres();
+      //   get getRaza() {
+      //     return this.raza;
+      //   }
+      //   set setRaza(raza) {
+      //     this.raza = raza;
+      //   }
+      // }
 
-      const mimi = new Animal("Mimi", "Hembra");
-      const scooby = new Perro("Scooby", "Macho", "Gigante");
+      // Perro.queEres();
 
-      console.log(mimi);
-      mimi.saludar();
-      mimi.sonar();
-      console.log(scooby);
-      scooby.saludar();
-      scooby.sonar();
-      scooby.ladrar();
+      // const mimi = new Animal("Mimi", "Hembra");
+      // const scooby = new Perro("Scooby", "Macho", "Gigante");
 
-      console.log(scooby.getRaza);
-      scooby.setRaza = "Gran danés";
-      console.log(scooby.getRaza);
+      // console.log(mimi);
+      // mimi.saludar();
+      // mimi.sonar();
+      // console.log(scooby);
+      // scooby.saludar();
+      // scooby.sonar();
+      // scooby.ladrar();
+
+      // console.log(scooby.getRaza);
+      // scooby.setRaza = "Gran danés";
+      // console.log(scooby.getRaza);
+
+      // ****************************************** Objeto console ***********************************
+
+      // console.log(console);
+      // console.error("Esto es un error");
+      // console.warn("Esto es un aviso");
+      // console.info("Esto es un mensaje informativo");
+      // console.log("un registo de lo que ha pasado en nuestra aplicación");
+
+      // const nombre = "Carlos Javier";
+      // const apellido = "Lozano";
+      // const edad = 35;
+
+      // console.log(nombre);
+      // console.log(apellido);
+      // console.log(edad);
+      // console.log(nombre, apellido, edad);
+      // console.log(
+      //   `Hola mi nombre es ${nombre} ${apellido} y tengo ${edad} años`
+      // );
+      // console.log(
+      //   `Hola mi nombre es %s %s y tengo %d años años`,
+      //   nombre,
+      //   apellido,
+      //   edad
+      // );
+
+      // console.clear();
+
+      // console.log(window);
+      // console.log(document);
+      // console.dir(window);
+      // console.dir(document);
+
+      // console.clear();
+
+      // console.group("Cursos de @jonmircha en youtube");
+      // console.log("Curso de javascript");
+      // console.log("Curso de Node.js");
+      // console.log("Curso de PWAs");
+      // console.log("Curso de Flexbox");
+      // console.log("Curso de Diseño y Programación Web");
+      // console.groupEnd();
+
+      // console.groupCollapsed("Cursos de @jonmircha en youtube");
+      // console.log("Curso de javascript");
+      // console.log("Curso de Node.js");
+      // console.log("Curso de PWAs");
+      // console.log("Curso de Flexbox");
+      // console.log("Curso de Diseño y Programación Web");
+      // console.groupEnd();
+
+      // console.clear();
+
+      // console.table(Object.entries(console).sort());
+
+      // const numeros = [1, 2, 3, 4, 5];
+      // const vocales = ["a", "e", "i", "o", "u"];
+      // console.table(numeros);
+      // console.table(vocales);
+
+      // const gato = {
+      //   nombre: "Cosmo",
+      //   raza: "Común europeo",
+      //   color: "Gris atigrado",
+      // };
+
+      // console.table(gato);
+
+      // console.clear();
+
+      // console.time("Cuanto tiempo tarda mi código");
+      // const miArray = Array(1000000);
+
+      // for (let i = 0; i < miArray.length; i += 1) {
+      //   miArray[i] = i;
+      // }
+
+      // console.timeEnd("Cuanto tiempo tarda mi código");
+
+      // console.clear();
+
+      // for (let i = 0; i < 100; i += 1) {
+      //   console.count("código for");
+      //   console.log(i);
+      // }
+
+      // console.clear();
+
+      // let x = 3;
+      // let y = 2;
+      // let pruebaXY = "Se espera que X siempre sea menor que Y";
+
+      // console.assert(x < y, { x, y, pruebaXY });
+
+      // ****************************  Objeto Date ********************************
+
+      // console.log(Date());
+
+      // const fecha = new Date();
+      // console.log(fecha);
+
+      // // Número día del mes
+      // console.log(fecha.getDate());
+
+      // // Número de la semana D-L-M-X-J-V-S (0, 1, 2, 3, 4, 5, 6)
+      // console.log(fecha.getDay());
+
+      // // Número Mes Ene Feb Mar Abr Mau Jun Jul Ago Sep Oct Nov Dic (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+      // console.log(fecha.getMonth());
+
+      // // Año en el que estamos
+      // console.log(fecha.getFullYear());
+
+      // // Hora
+      // console.log(fecha.getHours());
+
+      // // Minutos
+      // console.log(fecha.getMinutes());
+
+      // //Segundos
+      // console.log(fecha.getSeconds());
+
+      // // ms
+      // console.log(fecha.getMilliseconds());
+
+      // console.log(fecha.toDateString());
+      // console.log(fecha.toLocaleString());
+      // console.log(fecha.toLocaleDateString());
+      // console.log(fecha.toLocaleTimeString());
+      // console.log(fecha.getTimezoneOffset());
+      // console.log(fecha.getUTCDate());
+      // console.log(fecha.getUTCHours());
+      // console.log(Date.now());
+      // const cumpleCarlosj = new Date(1986, 7, 22);
+      // console.log(cumpleCarlosj);
+
+      // ************************************************* Objeto Math *****************************************
+
+      console.log(Math);
+      console.log(Math.PI);
+      console.log(Math.abs(-7.8));
+      console.log(Math.ceil(7.2));
+      console.log(Math.floor(7.8));
+      console.log(Math.round(7.8));
+      console.log(Math.round(7.4));
+      console.log(Math.sqrt(81));
+      console.log(Math.pow(2, 5));
+      console.log(Math.sign(-7.8)); // Devuelve -1 en caso de que el número sea negativo, 0 en el caso de ser 0 y 1 si es mayor que 0
+      console.log(Math.random());
+      console.log(Math.round(Math.random() * 1000));
     </script>
   </body>
 </html>
