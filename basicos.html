@@ -959,18 +959,91 @@
 
       // ************************************************* Objeto Math *****************************************
 
-      console.log(Math);
-      console.log(Math.PI);
-      console.log(Math.abs(-7.8));
-      console.log(Math.ceil(7.2));
-      console.log(Math.floor(7.8));
-      console.log(Math.round(7.8));
-      console.log(Math.round(7.4));
-      console.log(Math.sqrt(81));
-      console.log(Math.pow(2, 5));
-      console.log(Math.sign(-7.8)); // Devuelve -1 en caso de que el número sea negativo, 0 en el caso de ser 0 y 1 si es mayor que 0
-      console.log(Math.random());
-      console.log(Math.round(Math.random() * 1000));
+      // console.log(Math);
+      // console.log(Math.PI);
+      // console.log(Math.abs(-7.8));
+      // console.log(Math.ceil(7.2));
+      // console.log(Math.floor(7.8));
+      // console.log(Math.round(7.8));
+      // console.log(Math.round(7.4));
+      // console.log(Math.sqrt(81));
+      // console.log(Math.pow(2, 5));
+      // console.log(Math.sign(-7.8)); // Devuelve -1 en caso de que el número sea negativo, 0 en el caso de ser 0 y 1 si es mayor que 0
+      // console.log(Math.random());
+      // console.log(Math.round(Math.random() * 1000));
+
+      // ********************* Operador de cortocircuito ******************** ******
+
+      /*
+        Cortocircuito OR, Cortocircuito AND
+      */
+
+      // function saludar(nombre) {
+      //   nombre = nombre || "Desconocido"; // En este caso, se hacía antes de que llegaran los parámetro por defecto en las funciones
+      //   console.log(`Hola ${nombre}`);
+      // }
+
+      // saludar("Carlos Javier");
+      // saludar();
+
+      // console.log("cadena" || "Valor de la derecha");
+      // console.log(19 || "Valor de la derecha");
+      // console.log([] || "Valor de la derecha");
+      // console.log({} || "Valor de la derecha");
+      // console.log(false || "Valor de la derecha");
+      // console.log(null || "Valor de la derecha");
+      // console.log(undefined || "Valor de la derecha");
+      // console.log("" || "Valor de la derecha");
+      // console.log(-2 || "Valor de la derecha");
+      // console.log(0 || "Valor de la derecha");
+
+      // console.log(false && "Valor de la derecha");
+      // console.log(null && "Valor de la derecha");
+      // console.log(undefined && "Valor de la derecha");
+      // console.log("" && "Valor de la derecha");
+      // console.log(-2 && "Valor de la derecha");
+      // console.log(0 && "Valor de la derecha");
+
+      // console.log("cadena" && "Valor de la derecha");
+      // console.log(19 && "Valor de la derecha");
+      // console.log([] && "Valor de la derecha");
+      // console.log({} && "Valor de la derecha");
+
+      // ******************************* Alert, confirm y prompt *******************************
+
+      // alert("Hola esto una alerta");
+      // confirm("Hola esto una confirmación");
+      //prompt( "Hola esto es un prompt y le permite al usuario ingresar un valor");
+
+      // const alerta = alert("Hola es es una alerta");
+      // const confirmacion = confirm("Hola esto es una confirmación");
+      // const aviso = prompt(
+      //   "Hola esto es un aviso y le permite al usuario ingresar un valor"
+      // );
+
+      // console.log(alerta);
+      // console.log(confirmacion);
+      // console.log(aviso);
+
+      // **************************** Expresiones regulares ********************************
+
+      /*
+        Expresiones regulares
+         Son una secuencia de caracteres que forma un patrón de búsqueda,
+         principalmente utilizada para la búsqueda de patrones de cadenas
+         de caracteres
+      */
+
+      const cadena =
+        "Jamón ipsum petardazo gazpacho 3 salmorejo chulo, pasan hormiguero pero las tía haciéndose el loco, flipado bocadillo gordinflón cien gaviotas Lepe pero el dolores jamón. Honor morcilla corral una quinto pino bacalao fregona descafeinado y tu probando. Ligar flipado mi bingo caballero cara de malo las a diestro y siniestro. Genial y ancha es Castilla. Estupendo año croquetas, barrio tronco a resacón camello mete una bola turrón.";
+
+      // const expReg = new RegExp("jamón", "ig");
+      // console.log(expReg.test(cadena));
+      // console.log(expReg.exec(cadena));
+
+      const expReg2 = /jamón{1}/gi;
+      console.log(expReg2.test(cadena));
+      console.log(expReg2.exec(cadena));
     </script>
   </body>
 </html>
