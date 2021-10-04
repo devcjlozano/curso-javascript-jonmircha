@@ -675,13 +675,13 @@
 
       // POO
       /*
-      Clases - Modelo a seguir
-      Objetos - Es una instancia de una clase
-        Atributos - Es una característica o propiedad
-        del objeto (son variables dentro de un objeto)
-        Métodos - Son las acciones que un objeto puede
-        realizar (son funciones dentro de un objeto)
-    */
+        Clases - Modelo a seguir
+        Objetos - Es una instancia de una clase
+          Atributos - Es una característica o propiedad
+          del objeto (son variables dentro de un objeto)
+          Métodos - Son las acciones que un objeto puede
+          realizar (son funciones dentro de un objeto)
+      */
       // const animal = {
       //   nombre: "Snoopy",
       //   sonar() {
@@ -975,8 +975,8 @@
       // ********************* Operador de cortocircuito ******************** ******
 
       /*
-        Cortocircuito OR, Cortocircuito AND
-      */
+          Cortocircuito OR, Cortocircuito AND
+        */
 
       // function saludar(nombre) {
       //   nombre = nombre || "Desconocido"; // En este caso, se hacía antes de que llegaran los parámetro por defecto en las funciones
@@ -1028,22 +1028,61 @@
       // **************************** Expresiones regulares ********************************
 
       /*
-        Expresiones regulares
-         Son una secuencia de caracteres que forma un patrón de búsqueda,
-         principalmente utilizada para la búsqueda de patrones de cadenas
-         de caracteres
-      */
+          Expresiones regulares
+           Son una secuencia de caracteres que forma un patrón de búsqueda,
+           principalmente utilizada para la búsqueda de patrones de cadenas
+           de caracteres
+        */
 
-      const cadena =
-        "Jamón ipsum petardazo gazpacho 3 salmorejo chulo, pasan hormiguero pero las tía haciéndose el loco, flipado bocadillo gordinflón cien gaviotas Lepe pero el dolores jamón. Honor morcilla corral una quinto pino bacalao fregona descafeinado y tu probando. Ligar flipado mi bingo caballero cara de malo las a diestro y siniestro. Genial y ancha es Castilla. Estupendo año croquetas, barrio tronco a resacón camello mete una bola turrón.";
+      // const cadena =
+      //   "Jamón ipsum petardazo gazpacho 3 salmorejo chulo, pasan hormiguero pero las tía haciéndose el loco, flipado bocadillo gordinflón cien gaviotas Lepe pero el dolores jamón. Honor morcilla corral una quinto pino bacalao fregona descafeinado y tu probando. Ligar flipado mi bingo caballero cara de malo las a diestro y siniestro. Genial y ancha es Castilla. Estupendo año croquetas, barrio tronco a resacón camello mete una bola turrón.";
 
-      // const expReg = new RegExp("jamón", "ig");
-      // console.log(expReg.test(cadena));
-      // console.log(expReg.exec(cadena));
+      // // const expReg = new RegExp("jamón", "ig");
+      // // console.log(expReg.test(cadena));
+      // // console.log(expReg.exec(cadena));
 
-      const expReg2 = /jamón{1}/gi;
-      console.log(expReg2.test(cadena));
-      console.log(expReg2.exec(cadena));
+      // const expReg2 = /jamón{1}/gi;
+      // console.log(expReg2.test(cadena));
+      // console.log(expReg2.exec(cadena));
+
+      //****************************************** Funciones anónimas autojecutables *************************************
+
+      // Función anónima autoejecutable
+      // (function () {
+      //   console.log("Mi primera IIFE");
+      // })();
+
+      // (function (d, w, c) {
+      //   console.log("Mi segunda IIFE");
+      //   console.log(d);
+      //   console.log(w);
+      //   console.log(c);
+      //   c.log("Este es un console.log");
+      // })(document, window, console);
+
+      // // Formas de escribir las funciones anónimas autoejecutables
+
+      // // Clásica
+      // (function () {
+      //   console.log("Versión clásica");
+      // })();
+
+      // // La crockford (Javascript The Good Parts)
+      // (function () {
+      //   console.log("Versión Crockford");
+      // })();
+
+      // // Unaria
+      // +(function () {
+      //   console.log("Versión Unaria");
+      // })();
+
+      // // Facebook
+      // !(function () {
+      //   console.log("Versión facebook");
+      // })();
+
+      // ******************************************** Módulos (import/export) *****************************************
     </script>
   </body>
 </html>
