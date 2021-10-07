@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basicos-ejercicios</title>
+</0head>
+<body>
+  <h1> Ejercicios básicos</h1>
+  <script>
+   /*
+     Función que cuente el número de caracteres de una cadena de texto
+     ejemplo: miFuncion("Hola Mundo") devolvera 10
+   */
+   const contadorCaracteres = texto =>
+    typeof texto !== 'string'
+     ? console.warn("El dato no es string")
+     : texto.length;
+   
+   const cadena = 'Carlos Javier';
+   const numeroCaracters = contadorCaracteres(cadena)
+
+   console.log("El número de caracteres de la cadena es: ", numeroCaracters)
+
+   /*
+    Función que devuelva el texto recortado según el número de caracteres indicados
+    ejemplo: miFunción("Hola Mundo", 4) devolverá Hola
+   */
+   
+ 
+   const cortarTexto = (texto, longitud = undefined) => 
+    typeof texto !== 'string'
+      ? console.warn("El texto no es string")
+      : texto.slice(0, longitud);
+
+
+   let cadenaCortar = "Hola mundo"
+   cadenaCortar = cortarTexto(cadenaCortar, 3)
+   console.log('La cadena cortada es: ', cadenaCortar)
+
+   /*
+    Función que dado un string, te devuelva un array de textos separados por cierto caracter
+    por ejemplo: miFuncion('hola que tal', '') devolverá ['hola', 'que', 'tal']
+   */
+
+   const separarCaracteresEnArray = (texto, separador) =>
+    typeof texto !== 'string' || typeof separador !== 'string'
+     ? console.warn('El dato pasado no es string')
+     : texto.split(separador)  
+   
+   let cadenaEnString = "Hola que tal"
+   cadenaEnString = separarCaracteresEnArray(cadenaEnString, ' ')
+   console.log("La cadena en string es: ", cadenaEnString)
+
+   /*
+    Función que repite un texto x veces. Por ejemplo, miFuncion('Hola Mundo', 3) devolverá
+    Hola Mundo, Hola Mundo, Hola Mundo
+   */
+
+   const repetirTexto = (texto, veces) => {
+     if(typeof texto !== 'string') {
+        console.warn('El dato pasado no es string')
+     }
+     if(isNaN(veces)) {
+        console.warn('El numero pasado no es un número')
+     }  
+     const textoAux = texto
+     for (let i = 0; i < veces - 1; i +=1 ) {
+       texto += `${veces - 1 === i -1 ? '' : ', '}${textoAux}`
+     }
+     return texto
+   }
+
+   let textoRepetir = 'Hola mundo'
+   textoRepetir = repetirTexto(textoRepetir, 3)
+   console.log('El texto repetido es')
+   console.log(textoRepetir)
+  </script>
+</body>
+</html>
