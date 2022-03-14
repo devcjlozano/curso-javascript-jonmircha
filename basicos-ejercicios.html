@@ -1,81 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basicos-ejercicios</title>
-</0head>
-<body>
-  <h1> Ejercicios básicos</h1>
-  <script>
-   /*
-     Función que cuente el número de caracteres de una cadena de texto
-     ejemplo: miFuncion("Hola Mundo") devolvera 10
-   */
-   const contadorCaracteres = texto =>
-    typeof texto !== 'string'
-     ? console.warn("El dato no es string")
-     : texto.length;
-   
-   const cadena = 'Carlos Javier';
-   const numeroCaracters = contadorCaracteres(cadena)
+  </head>
+  <body>
+    <h1>Ejercicios básicos</h1>
+    <script>
+      /*
+         1) Función que cuente el número de caracteres de una cadena de texto
+         ejemplo: miFuncion("Hola Mundo") devolvera 10
+       */
+      const contadorCaracteres = (texto) =>
+        typeof texto !== "string"
+          ? console.warn("El dato no es string")
+          : texto.length;
 
-   console.log("El número de caracteres de la cadena es: ", numeroCaracters)
+      const cadena = "Carlos Javier";
+      const numeroCaracters = contadorCaracteres(cadena);
 
-   /*
-    Función que devuelva el texto recortado según el número de caracteres indicados
-    ejemplo: miFunción("Hola Mundo", 4) devolverá Hola
-   */
-   
- 
-   const cortarTexto = (texto, longitud = undefined) => 
-    typeof texto !== 'string'
-      ? console.warn("El texto no es string")
-      : texto.slice(0, longitud);
+      console.log("El número de caracteres de la cadena es: ", numeroCaracters);
 
+      /*
+        2) Función que devuelva el texto recortado según el número de caracteres indicados
+        ejemplo: miFunción("Hola Mundo", 4) devolverá Hola
+       */
 
-   let cadenaCortar = "Hola mundo"
-   cadenaCortar = cortarTexto(cadenaCortar, 3)
-   console.log('La cadena cortada es: ', cadenaCortar)
+      const cortarTexto = (texto, longitud = undefined) =>
+        typeof texto !== "string"
+          ? console.warn("El texto no es string")
+          : texto.slice(0, longitud);
 
-   /*
-    Función que dado un string, te devuelva un array de textos separados por cierto caracter
-    por ejemplo: miFuncion('hola que tal', '') devolverá ['hola', 'que', 'tal']
-   */
+      let cadenaCortar = "Hola mundo";
+      cadenaCortar = cortarTexto(cadenaCortar, 3);
+      console.log("La cadena cortada es: ", cadenaCortar);
 
-   const separarCaracteresEnArray = (texto, separador) =>
-    typeof texto !== 'string' || typeof separador !== 'string'
-     ? console.warn('El dato pasado no es string')
-     : texto.split(separador)  
-   
-   let cadenaEnString = "Hola que tal"
-   cadenaEnString = separarCaracteresEnArray(cadenaEnString, ' ')
-   console.log("La cadena en string es: ", cadenaEnString)
+      /*
+       3) Función que dado un string, te devuelva un array de textos separados por cierto caracter
+        por ejemplo: miFuncion('hola que tal', '') devolverá ['hola', 'que', 'tal']
+       */
 
-   /*
-    Función que repite un texto x veces. Por ejemplo, miFuncion('Hola Mundo', 3) devolverá
-    Hola Mundo, Hola Mundo, Hola Mundo
-   */
+      const separarCaracteresEnArray = (texto, separador) =>
+        typeof texto !== "string" || typeof separador !== "string"
+          ? console.warn("El dato pasado no es string")
+          : texto.split(separador);
 
-   const repetirTexto = (texto, veces) => {
-     if(typeof texto !== 'string') {
-        console.warn('El dato pasado no es string')
-     }
-     if(isNaN(veces)) {
-        console.warn('El numero pasado no es un número')
-     }  
-     const textoAux = texto
-     for (let i = 0; i < veces - 1; i +=1 ) {
-       texto += `${veces - 1 === i -1 ? '' : ', '}${textoAux}`
-     }
-     return texto
-   }
+      let cadenaEnString = "Hola que tal";
+      cadenaEnString = separarCaracteresEnArray(cadenaEnString, " ");
+      console.log("La cadena en string es: ", cadenaEnString);
 
-   let textoRepetir = 'Hola mundo'
-   textoRepetir = repetirTexto(textoRepetir, 3)
-   console.log('El texto repetido es')
-   console.log(textoRepetir)
-  </script>
-</body>
+      /*
+        4) Función que repite un texto x veces. Por ejemplo, miFuncion('Hola Mundo', 3) devolverá
+        Hola Mundo, Hola Mundo, Hola Mundo
+       */
+
+      const repetirTexto = (texto, veces) => {
+        if (typeof texto !== "string") {
+          console.warn("El dato pasado no es string");
+        }
+        if (isNaN(veces)) {
+          console.warn("El numero pasado no es un número");
+        }
+        const textoAux = texto;
+        for (let i = 0; i < veces - 1; i += 1) {
+          texto += `${veces - 1 === i - 1 ? "" : ", "}${textoAux}`;
+        }
+        return texto;
+      };
+
+      let textoRepetir = "Hola mundo";
+      textoRepetir = repetirTexto(textoRepetir, 3);
+      console.log("El texto repetido es");
+      console.log(textoRepetir);
+      /*
+        5) Función que invierta las palabras de una cadena de texto, por ejemplo, ("Hola mundo") devolverá
+        "odnum aloH".
+      */
+
+      const invertirTexto = (texto) =>
+        typeof texto !== "string"
+          ? console.warn("El dato pasao no es string")
+          : texto.split("").reverse().join("");
+
+      const textoAinvertir = "Hola mundo";
+      const textoInvertido = invertirTexto(textoAinvertir);
+      console.log("El texto invertido es", textoInvertido);
+
+      /*
+        6) Función para contar el número de veces que se repite una palabra en un texto largo
+         por ejemplo, ("hola mundo adios mundo", "mundo") devolverá 2
+      */
+
+      const contadorPalabras = (texto, palabra) => {
+        if (typeof palabra !== "string") {
+          return console.warn("La palabra pasada no es un string");
+        }
+        if (typeof texto !== "string") {
+          return console.warn("La palabra pasada no es un string");
+        }
+        let contadorPalabras = 0;
+        let indicePalabra = texto.indexOf(palabra);
+        while (indicePalabra > -1) {
+          contadorPalabras += 1;
+          indicePalabra = texto.indexOf(palabra, indicePalabra + 1);
+        }
+        return contadorPalabras;
+      };
+
+      const palabraABuscar = "mundo";
+      const textoPalabrasRepetidas = "hola mundo adios mundo";
+      console.log(
+        `El número de veces que se repetite la palabra ${palabraABuscar} es ${contadorPalabras(
+          textoPalabrasRepetidas,
+          palabraABuscar
+        )}`
+      );
+
+      /*
+        7) Función que valide si una palabra o frase dada es un palíndromo (que se lee igual en un sentido que en otro).
+        Por ejemplo, ("salas") devolverá true
+      */
+
+      const esPalindromo = (palabra) => {
+        const longitudPalabra = palabra.length - 1;
+        let indiceDerecha = longitudPalabra;
+        let esPalindromo = true;
+
+        for (let i = 0; i < Math.round(longitudPalabra / 2); i += 1) {
+          indiceDerecha = longitudPalabra - i;
+          console.log("estoy comparando", i, indiceDerecha);
+          if (palabra[i] !== palabra[indiceDerecha]) {
+            esPalindromo = false;
+            break;
+          }
+        }
+        return esPalindromo;
+      };
+
+      // otra manera de hacer la función palíndroma
+
+      const esPalindromoVersionDos = (palabra) => {
+        palabra = palabra.toLowerCase();
+        const palabraAlReves = palabra.split("").reverse.join("");
+
+        return palabra === palabraAlReves;
+      };
+
+      const palabraPalindroma = "salas";
+      const esPalabraPalindromo = esPalindromo(palabraPalindroma);
+      console.log(
+        `La palabra ${palabraPalindroma} ${
+          esPalabraPalindromo ? "es" : "no es"
+        } palíndroma`
+      );
+      /*
+        8) Función que elimine cierto patrón de caracteres de un texto dado.
+        Por ejemplo ("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá 1, 2, 3, 4 y 5
+      */
+
+      const eliminarPatron = (texto, patron) => {
+        return texto.replaceAll(patron, "");
+      };
+
+      const texto = "xyz1, xyz2, xyz3, xyz4, xyz5";
+      const patron = "xyz";
+      console.log(
+        "El texto con el patrón eliminado es ",
+        eliminarPatron(texto, patron)
+      );
+    </script>
+  </body>
 </html>
