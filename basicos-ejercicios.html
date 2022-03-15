@@ -143,7 +143,7 @@
 
       const esPalindromoVersionDos = (palabra) => {
         palabra = palabra.toLowerCase();
-        const palabraAlReves = palabra.split("").reverse.join("");
+        const palabraAlReves = palabra.split("").reverse().join("");
 
         return palabra === palabraAlReves;
       };
@@ -169,6 +169,60 @@
       console.log(
         "El texto con el patrón eliminado es ",
         eliminarPatron(texto, patron)
+      );
+
+      /*
+        9) Función que obtenga un número aleatorio entre 501 y 600
+      */
+
+      const generarNumeroAleatorio = () => {
+        const numeroAleatorio = Math.random() * (500 - 600) + 500;
+        return Math.round(numeroAleatorio + 1);
+      };
+
+      const numeroAleatorio = generarNumeroAleatorio();
+      console.log("El número aleatorio es", numeroAleatorio);
+
+      /*
+        10) Función que reciba un número y evalúe si es capicúa o no (se lee igual en un sentido que en otro)
+        Por ejemplo, (2002) devolverá true
+      */
+
+      const esNumeroCapicua = (numero) => {
+        if (typeof numero !== "number") {
+          return console.warn("No se ha pasado un número");
+        }
+        const numeroEnString = numero.toString();
+        const numeroEnStringAlReves = numeroEnString
+          .split("")
+          .reverse()
+          .join("");
+        return numeroEnString === numeroEnStringAlReves;
+      };
+
+      const numero = 2002;
+      console.log(
+        `El número ${esNumeroCapicua(numero) ? "es" : "no es"} capicúa`
+      );
+
+      /*
+        11) Función que calcule el factorial de un número (El factorial de un entero 
+        positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n)
+        Por ejemplo, (5) devolverá 120
+      */
+
+      const calcularFactorial = (numero) => {
+        let factorial = 1;
+        for (let i = 1; i <= numero; i += 1) {
+          factorial *= i;
+        }
+        return factorial;
+      };
+
+      const numeroFactorial = 5;
+      console.log(
+        `El factorial de ${numeroFactorial} es: `,
+        calcularFactorial(numeroFactorial)
       );
     </script>
   </body>
