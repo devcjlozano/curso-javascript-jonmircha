@@ -224,6 +224,80 @@
         `El factorial de ${numeroFactorial} es: `,
         calcularFactorial(numeroFactorial)
       );
+
+      /*
+        12) Función que determine si un número es primo (aquel que solo es divisible por sí mismo y la unidad)
+        Por ejemplo (7) devolverá true
+      */
+
+      const determinarNumeroEsPrimo = (numero) => {
+        if (!numero) {
+          return console.warn("No has pasado ningún parámetro");
+        }
+        if (typeof numero !== "number") {
+          return console.warn("No has pasado un número");
+        }
+        let contadorNumerosDivisibles = 0;
+        for (let i = 2; i < numero; i += 1) {
+          if (numero % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      };
+
+      const numeroPrimo = 7;
+      console.log(
+        `El número ${numeroPrimo} ${
+          determinarNumeroEsPrimo(numeroPrimo) ? "es" : "no es"
+        } primo`
+      );
+
+      /*
+        13) Función que determine si un número es par o impar
+        Por ejemplo (29) devolverá false
+      */
+
+      const comprobarNumeroPar = (numero) => {
+        if (!numero) {
+          return console.warn("No has pasado ningún parámetro");
+        }
+        if (typeof numero !== "number") {
+          return console.warn("No has pasado un número");
+        }
+        return numero % 2 === 0;
+      };
+
+      const numeroPar = 29;
+      console.log(
+        `El número ${numeroPar} ${
+          comprobarNumeroPar(numeroPar) ? "es" : "no es"
+        } par`
+      );
+
+      /*
+        13) Función que convertirá grados Celcius a Fahrenteit y viceversa
+        Por ejemplo, (0, "C") devolverá 32ºF
+      */
+
+      const convertirGrados = (grados, unidad) => {
+        if (typeof grados !== "number") {
+          console.warn("grados no es un numero");
+        }
+        if (typeof unidad !== "string" || (unidad !== "C" && unidad !== "F")) {
+          console.warn("No se reconoce el formado de grados");
+        }
+        return unidad === "C"
+          ? `${(grados * 9) / 5 + 32}ºF`
+          : `${((grados - 32) * 5) / 9}ºC`;
+      };
+
+      const grados = 0;
+      const unidadGrados = "C";
+
+      console.log(
+        `${grados}º${unidadGrados} son ${convertirGrados(grados, unidadGrados)}`
+      );
     </script>
   </body>
 </html>
