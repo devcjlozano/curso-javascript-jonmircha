@@ -276,7 +276,7 @@
       );
 
       /*
-        13) Función que convertirá grados Celcius a Fahrenteit y viceversa
+        14) Función que convertirá grados Celcius a Fahrenteit y viceversa
         Por ejemplo, (0, "C") devolverá 32ºF
       */
 
@@ -297,6 +297,84 @@
 
       console.log(
         `${grados}º${unidadGrados} son ${convertirGrados(grados, unidadGrados)}`
+      );
+      /*
+       15) Función que convierte número de base binaria a decimal y viceversa.
+       Por ejemplo, (100, 2) devolverá 4 base 10 
+      */
+      const convertirBinarioDecimal = (numero, base) => {
+        if (typeof numero !== "number") {
+          console.warn(`El número ${numero} no es un número`);
+        }
+        if (base !== 10 || base !== 2) {
+          console.warn("La base que se ha pasado no es 2 ni 10");
+        }
+        return base === 10
+          ? `${numero.toString(2)} base 2`
+          : `${parseInt(numero, base)} base 10`;
+      };
+      let numeroAConvertir = 100;
+      let baseNumero = 2;
+      console.log(
+        `El número ${numeroAConvertir} en base ${baseNumero} es ${convertirBinarioDecimal(
+          numeroAConvertir,
+          baseNumero
+        )}`
+      );
+      numeroAConvertir = 4;
+      baseNumero = 10;
+      console.log(
+        `El número ${numeroAConvertir} en base ${baseNumero} es ${convertirBinarioDecimal(
+          numeroAConvertir,
+          baseNumero
+        )}`
+      );
+
+      /*
+        Función que devuelva el importe final después de aplicar un descuento a una cantidad dada.
+        Por ejemplo, (1000, 20) devolverá 800
+      */
+
+      const calcularImporteConDescuento = (cantidad, descuento) => {
+        if (typeof cantidad !== "number") {
+          console.warn(`La cantidad ${cantidad} no es un número`);
+        }
+        if (typeof descuento !== "number") {
+          console.warn(`El descuento ${descuento} no es un número`);
+        }
+        const cantidadADescontar = (cantidad * descuento) / 100;
+        if (cantidad - cantidadADescontar <= 0) {
+          return 0;
+        }
+        return cantidad - cantidadADescontar;
+      };
+
+      const importeProducto = 1000;
+      const descuento = 20;
+      console.log(
+        `El precio orginal es ${importeProducto} y con descuento se queda en ${calcularImporteConDescuento(
+          importeProducto,
+          descuento
+        )}`
+      );
+      /*
+        Función que dada un fecha válida determine cuando años han pasado hasta hoy.
+        Por ejemplo, (new Date(1986, 3, 28) devolverá 36 años (en 2022)
+      */
+
+      const calcularAniosPasados = (fecha) => {
+        if (typeof fecha !== Date) {
+          console.log("La fecha pasada no es una fecha válida");
+        }
+        const anioFechaParam = fecha.getFullYear();
+        const anioActual = new Date().getFullYear();
+        return `${anioActual - anioFechaParam} años`;
+      };
+      const fechaAnios = new Date(1986, 3, 28);
+      console.log(
+        `Desde el año ${fechaAnios} han pasado ${calcularAniosPasados(
+          fechaAnios
+        )}`
       );
     </script>
   </body>
