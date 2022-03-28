@@ -331,7 +331,7 @@
       );
 
       /*
-        Función que devuelva el importe final después de aplicar un descuento a una cantidad dada.
+        16) Función que devuelva el importe final después de aplicar un descuento a una cantidad dada.
         Por ejemplo, (1000, 20) devolverá 800
       */
 
@@ -358,7 +358,7 @@
         )}`
       );
       /*
-        Función que dada un fecha válida determine cuando años han pasado hasta hoy.
+        17) Función que dada un fecha válida determine cuando años han pasado hasta hoy.
         Por ejemplo, (new Date(1986, 3, 28) devolverá 36 años (en 2022)
       */
 
@@ -376,6 +376,43 @@
           fechaAnios
         )}`
       );
+      /*
+       18) Función que dada un cadena de texto cuente el número de vocales y consonantes.
+       Por ejemplo ("Hola mundo") devuelva Vocales: 4, Consonantes: 5
+      */
+
+      const contarVocalesYConsonantes = (texto) => {
+        regularExpresionVocales = /[aeiou]/gi;
+        regularExpresionConsonantes = /[a-z]/gi;
+
+        let contadorVocales = 0;
+        let contadorConsonantes = 0;
+
+        if (typeof texto !== "string") {
+          console.log("El texto pasado no es una cadena de texto");
+        }
+        const textoSinEspacios = texto.replace(/\s/g, "");
+        for (let i = 0; i < textoSinEspacios.length; i += 1) {
+          if (regularExpresionVocales.test(textoSinEspacios[i])) {
+            contadorVocales += 1;
+          }
+          if (
+            !regularExpresionVocales.test(textoSinEspacios[i]) &&
+            regularExpresionConsonantes.test(textoSinEspacios[i])
+          ) {
+            contadorConsonantes += 1;
+          }
+        }
+        return `Vocales: ${contadorVocales}, Consonantes: ${contadorConsonantes}`;
+      };
+
+      const textoContarVocalesyConsonantes = "Hola mundo";
+      console.log(
+        `El texto pasao ${textoContarVocalesyConsonantes} tiene ${contarVocalesYConsonantes(
+          textoContarVocalesyConsonantes
+        )}`
+      );
     </script>
   </body>
 </html>
+9
