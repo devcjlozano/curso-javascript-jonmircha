@@ -412,7 +412,45 @@
           textoContarVocalesyConsonantes
         )}`
       );
+      /*
+      19) Función que valide que un texto sea un nombre válido por ejemplo:
+        ("Carlos Javier") devolverá verdadero*/
+
+      const validarNombre = (nombre = "") => {
+        if (!nombre) return console.warn("No introduciste un nombre");
+        if (typeof nombre !== "string")
+          return console.error(`El valor ${nombre} no es una cadena de texto`);
+
+        const expresionRegular = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g;
+
+        return expresionRegular.test(nombre)
+          ? console.info(`"${nombre}" es un nombre válido`)
+          : console.warn(`"${nombre}" no es válido`);
+      };
+
+      validarNombre();
+      validarNombre(3);
+      validarNombre("Carlos Javier, 45");
+      validarNombre("Carlos Javier");
+      /*
+        20) Functión que valide que un texto sea un email válido, por ejemplo:
+        (carlosjlp@gmail.com) devolverá verdader
+      */
+      const validarEmail = (email = "") => {
+        if (!email) return console.warn("No introduciste un email");
+        if (typeof email !== "string")
+          return console.error(`El valor ${email} no es una cadena de texto`);
+
+        const expresionRegularEmail =
+          /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+        return expresionRegularEmail.test(email)
+          ? console.info(`"${email}" es un email válido`)
+          : console.warn(`"${email}" no es válido`);
+      };
+      validarEmail("carlos.com");
+      validarEmail("carlos@gmail");
+      validarEmail("carlosjlp@gmail.c");
+      validarEmail("carlosjlp@gmail.com");
     </script>
   </body>
 </html>
-9
