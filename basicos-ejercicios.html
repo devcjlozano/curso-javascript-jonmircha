@@ -433,7 +433,7 @@
       validarNombre("Carlos Javier, 45");
       validarNombre("Carlos Javier");
       /*
-        20) Functión que valide que un texto sea un email válido, por ejemplo:
+        20) Función que valide que un texto sea un email válido, por ejemplo:
         (carlosjlp@gmail.com) devolverá verdader
       */
       const validarEmail = (email = "") => {
@@ -451,6 +451,83 @@
       validarEmail("carlos@gmail");
       validarEmail("carlosjlp@gmail.c");
       validarEmail("carlosjlp@gmail.com");
+
+      /*
+       21) Función que dado un array numérico, devuelve otro array con los números elevados
+       al cuadrado, por ejemplo: (1, 4, 5), devolverá [1, 16, 25]
+      */
+      const numerosArrayAlCuadrado = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vació");
+        }
+        if (!array.every((numero) => typeof numero === "number"))
+          return console.warn("El array no es númerico");
+
+        return array.map((numero) => Math.pow(numero, 2));
+      };
+      let arrayNumerico = [1, "3", 5];
+      numerosArrayAlCuadrado();
+      numerosArrayAlCuadrado(arrayNumerico);
+
+      arrayNumerico = [1, 4, 5];
+      const arrayConvertido = numerosArrayAlCuadrado(arrayNumerico);
+      console.log(arrayConvertido);
+
+      /*
+        22) Función que dado un array devuelva el número más alto y más bajo de dicho array.
+        Por ejemplo [1, 4, 5, 99, -60] devolverá [99, -60]
+      */
+
+      const numeroAltoYBajo = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vació");
+        }
+        if (!array.every((numero) => typeof numero === "number"))
+          return console.warn("El array no es númerico");
+
+        const numeroMasAlto = Math.max(...array);
+        const numeroMasBajo = Math.min(...array);
+
+        return [numeroMasAlto, numeroMasBajo];
+      };
+
+      const arrayAltoYBajo = [1, 4, 5, 99, -60];
+      console.log(
+        `El número más alto y más bajo del array ${arrayAltoYBajo} son ${numeroAltoYBajo(
+          arrayAltoYBajo
+        )}`
+      );
+
+      /*
+        23) Función que dado un array de números devuelva un objeto con 2 arrays en el que el primero se 
+        almacenen los números pares y en el segundo los impares. Por ejemplo: ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+        devolverá {pares: [2, 4, 6, 8, 0], impares: [1, 2, 5, 7, 9]}
+      */
+      const convertirArrayObjetoParesImpares = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vació");
+        }
+        if (!array.every((numero) => typeof numero === "number"))
+          return console.warn("El array no es númerico");
+
+        const objetoFinal = {
+          pares: array.filter((numero) => numero % 2 === 0),
+          impares: array.filter((numero) => !(numero % 2 === 0)),
+        };
+
+        return objetoFinal;
+      };
+
+      const arrayParesImpares = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      const arrayConvertidoParesImpares =
+        convertirArrayObjetoParesImpares(arrayParesImpares);
+      console.log(
+        `Los números pares e impares del array ${arrayParesImpares} son`
+      );
+      console.info({
+        pares: arrayConvertidoParesImpares.pares,
+        impares: arrayConvertidoParesImpares.impares,
+      });
     </script>
   </body>
 </html>
