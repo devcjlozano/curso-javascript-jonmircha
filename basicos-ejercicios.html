@@ -206,7 +206,7 @@
       );
 
       /*
-        11) Función que calcule el factorial de un número (El factorial de un entero 
+        11) Función que calcule el factorial de un número (El factorial de un entero
         positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n)
         Por ejemplo, (5) devolverá 120
       */
@@ -300,7 +300,7 @@
       );
       /*
        15) Función que convierte número de base binaria a decimal y viceversa.
-       Por ejemplo, (100, 2) devolverá 4 base 10 
+       Por ejemplo, (100, 2) devolverá 4 base 10
       */
       const convertirBinarioDecimal = (numero, base) => {
         if (typeof numero !== "number") {
@@ -499,7 +499,7 @@
       );
 
       /*
-        23) Función que dado un array de números devuelva un objeto con 2 arrays en el que el primero se 
+        23) Función que dado un array de números devuelva un objeto con 2 arrays en el que el primero se
         almacenen los números pares y en el segundo los impares. Por ejemplo: ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
         devolverá {pares: [2, 4, 6, 8, 0], impares: [1, 2, 5, 7, 9]}
       */
@@ -528,6 +528,82 @@
         pares: arrayConvertidoParesImpares.pares,
         impares: arrayConvertidoParesImpares.impares,
       });
+
+      /*
+       24) Función que dado un array de números devuelva un objeto con dos arrays, el primero
+       tendrá los números ordenados de manera ascendente y el segundo de forma descendente.
+       Por ejemplo: (7, 5, 7, 8, 6) devolverá {asc: [5, 6, 7, 7, 8], desc: [8, 7, 7, 6, 5]}
+      */
+
+      const ordenarArrayAscendenteYDescendente = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vació");
+        }
+        if (!array.every((numero) => typeof numero === "number"))
+          return console.warn("El array no es númerico");
+
+        const objetoFinal = {
+          asc: array.map((numero) => numero).sort((a, b) => a - b),
+          desc: array.map((numero) => numero).sort((a, b) => b - a),
+        };
+
+        return objetoFinal;
+      };
+      const arrayOrdenarAscendenteYDescendente = [7, 5, 7, 8, 6];
+      const arrayOrdenado = ordenarArrayAscendenteYDescendente([
+        ...arrayOrdenarAscendenteYDescendente,
+      ]);
+      console.log(
+        `El objeto resultante del array ${arrayOrdenarAscendenteYDescendente} ordenado de manera ascendente y descendente es`
+      );
+      console.info({
+        asc: arrayOrdenado.asc,
+        desc: arrayOrdenado.desc,
+      });
+
+      /*
+      25) Función que dado un array de elementos, elimine los duplicados
+      Por ejemplo: (["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x, 10, 2, "10", true]
+      */
+
+      const eliminarDuplicados = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vacío");
+        }
+
+        return array.filter(
+          (elemento, index) => !array.includes(elemento, index + 1)
+        );
+      };
+
+      const miArrayDuplicado = ["x", 10, "x", 2, "10", 10, true, true];
+      console.log(
+        `El array con duplicados ${miArrayDuplicado} eliminando los duplicados es ${eliminarDuplicados(
+          miArrayDuplicado
+        )}`
+      );
+
+      /*
+       26) Programa una función que dado un array de número dobjeto el promedio.
+       Por ejemplo: ([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) devolverá 4.5
+      */
+
+      const promedioArrayNumerico = (array = []) => {
+        if (!array.length) {
+          return console.warn("El array está vacío");
+        }
+        const longitud = array.length;
+        const total = array.reduce(
+          (sumatorio, valorActual) => sumatorio + valorActual,
+          0
+        );
+
+        return total / longitud;
+      };
+      const arrayPromedio = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+      const promedio = promedioArrayNumerico(arrayPromedio);
+
+      console.log(`El promedio del array ${arrayPromedio} es ${promedio}`);
     </script>
   </body>
 </html>
