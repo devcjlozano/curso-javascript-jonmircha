@@ -604,6 +604,262 @@
       const promedio = promedioArrayNumerico(arrayPromedio);
 
       console.log(`El promedio del array ${arrayPromedio} es ${promedio}`);
+
+      /*
+       27) Programa una clase llamada Pelicula. La clase recibirá un objeto al meomento de instanciarse
+       con los siguientes datos: id de la pelicula de IMDB, titulo, director, año de estreno, país o paises de origen,
+       géneros y calificación en IMDB
+         - Todos los datos del objeto son obligatorios
+         - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
+         - Valida que el título no rebase los 100 caracteres
+         - Valida que el director no rebase los 50 caracteres
+         - Valida que  el año de estreno sea un número entero de 4 dígitos
+         - Valida que el país o paises sean introducidos en forma de array
+         - Valida que los genéros sean introducidos en forma de array
+         - Valida que los géneros introducidos estén dentro de los géneros aceptados
+         - Crea un método estático que devuelva los géneros aceptados
+         - Validad que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición
+         - Crea un método que devuelva todoa la ficha técnica de la película
+         - A partir de un array con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime
+         la ficha técnica de cada película.
+
+         *Géneros aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary, Drama, Family, Fantasy.
+          Film Noir, Game-show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-FI, Short, SPort, Talk-Show, Thriller,
+          War, Western
+      */
+
+      class Pelicula {
+        constructor({
+          id,
+          titulo,
+          director,
+          anioEstreno,
+          pais,
+          generos,
+          calificacion,
+        }) {
+          this.id = id;
+          this.titulo = titulo;
+          this.director = director;
+          this.anioEstreno = anioEstreno;
+          this.pais = pais;
+          this.generos = generos;
+          this.calificacion = calificacion;
+
+          this.validarIMDB(id);
+          this.validarTitulo(titulo);
+          this.validarDirector(director);
+          this.validarAnioEstreno(anioEstreno);
+          this.validarPais(pais);
+          this.validarGeneros(generos);
+          this.validarCalificacion(calificacion);
+        }
+
+        static get listaGeneros() {
+          return [
+            "Action",
+            "Adult",
+            "Adventure",
+            "Animation",
+            "Biography",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film Noir",
+            "Game-show",
+            "History",
+            "Horror",
+            "Musical",
+            "Music",
+            "Mystery",
+            "News",
+            "Reality-TV",
+            "Romance",
+            "Sci-FI",
+            "Short",
+            "Sport",
+            "Talk-Show",
+            "Thriller",
+            "War",
+            "Western",
+          ];
+        }
+
+        static generosAceptados() {
+          return console.info(
+            `Los géneros aceptados son: ${Pelicula.listaGeneros.join(" ")}`
+          );
+        }
+
+        validarCadena(propiedad, valor) {
+          if (!valor) return console.warn(`${propiedad} "${valor}" está vacío`);
+
+          if (typeof valor !== "string")
+            return console.error(
+              `${propiedad} "${valor}" ingresado, no es una cadena de texto`
+            );
+
+          return true;
+        }
+
+        validarLongitudCadena(propiedad, valor, longitud) {
+          if (valor.length > longitud)
+            return console.error(
+              `${propiedad} "${valor}" excede el número de caracteres permitidos (${longitud})`
+            );
+          return true;
+        }
+
+        validarNumero(propiedad, valor) {
+          if (!valor) return console.warn(`${propiedad} "${valor}" está vacío`);
+
+          if (typeof valor !== "number") {
+            return console.error(
+              `${propiedad} "${valor}" ingresado, no es un número`
+            );
+          }
+          return true;
+        }
+
+        validarArrayDeTextos(propiedad, valor) {
+          if (!valor) return console.warn(`${propiedad} "${valor}" está vacío`);
+
+          if (!(valor instanceof Array))
+            return console.error(
+              `${propiedad} "${valor}" ingresado, no es un array`
+            );
+
+          if (valor.length === 0)
+            return console.error(`${propiedad} "${valor}" no tiene datos`);
+
+          for (let cadena of valor) {
+            if (typeof cadena !== "string")
+              return console.error(
+                `El valor "${cadena}" ingresado, no es una cadena de texto`
+              );
+          }
+          return true;
+        }
+
+        validarIMDB(id) {
+          const esCadena = this.validarCadena("IMDB id", id);
+          if (esCadena) {
+            const expresionRegular = /^([a-z]){2}([0-9]){7}$/;
+            if (!expresionRegular.test(id)) {
+              return console.error(
+                `IMDB id "${id}" no es válido, debe tener 9 caracteres, los 2 primeros letras minúsculas, los 7 restantes numeros`
+              );
+            }
+          }
+        }
+
+        validarTitulo(titulo) {
+          const esCadena = this.validarCadena("Título", titulo);
+          if (esCadena) this.validarLongitudCadena("Título", titulo, 100);
+        }
+
+        validarDirector(director) {
+          const esCadena = this.validarCadena("Director", director);
+          if (esCadena) this.validarLongitudCadena("Director", director, 100);
+        }
+
+        validarAnioEstreno(anioEstreno) {
+          const esNumero = this.validarNumero("Año de estreno", anioEstreno);
+          if (esNumero) {
+            const expresionRegular = /^([0-9]){4}$/;
+            if (!expresionRegular.test(anioEstreno)) {
+              return console.error(
+                `El año de estreno ${anioEstreno} no es válido, debe de ser un número de 4 digitos`
+              );
+            }
+          }
+        }
+
+        validarCalificacion(calificacion) {
+          const esNumero = this.validarNumero("Calificación", calificacion);
+          if (esNumero) {
+            return calificacion > 0 && calificacion < 11
+              ? (this.calificacion = calificacion.toFixed(1))
+              : console.error(
+                  `La calificación ${calificacion} no está comprendida entre 0 y 10`
+                );
+          }
+        }
+
+        validarPais(pais) {
+          this.validarArrayDeTextos("Pais", pais);
+        }
+
+        validarGeneros(generos) {
+          const esArray = this.validarArrayDeTextos("Géneros", generos);
+          if (esArray) {
+            const generosQueNoCumplen = generos.filter(
+              (genero) => !Pelicula.listaGeneros.includes(genero)
+            );
+
+            if (generosQueNoCumplen.length) {
+              return console.error(
+                `Los géneros ${generosQueNoCumplen} ingresados no cumplen con los géneros permitidos`
+              );
+            }
+          }
+        }
+
+        fichaTecnica() {
+          console.info(`Ficha Técnica:
+          Título: ${this.titulo}
+          Director: ${this.director}
+          Año: ${this.anioEstreno}
+          Géneros: ${this.generos.join(", ")}
+          Calificación: ${this.calificacion}
+          IMDB id: ${this.id}
+          `);
+        }
+      }
+
+      // const peli = new Pelicula({
+      //   id: "tt1234567",
+      //   titulo: "Titulo de la peli",
+      //   director: "Director de la peli",
+      //   anioEstreno: 2020,
+      //   pais: ["España"],
+      //   generos: ["Comedy", "Sport"],
+      //   calificacion: 7.73,
+      // });
+
+      const misPelis = [
+        {
+          id: "tt0758758",
+          titulo: "Into the Wild",
+          director: "Sean Penn",
+          pais: ["USA"],
+          anioEstreno: 2007,
+          generos: ["Adventure", "Biography", "Drama"],
+          calificacion: 8.1,
+        },
+        {
+          id: "tt0479143",
+          titulo: "Rocky Balboa",
+          director: "Sylvester Stallone",
+          pais: ["USA"],
+          anioEstreno: 2006,
+          generos: ["Action", "Drama", "Sport"],
+          calificacion: 7.1,
+        },
+        {
+          id: "tt0468569",
+          titulo: "The Dark Kniggh",
+          director: "Cristopher Nolan",
+          pais: ["USA, UK"],
+          anioEstreno: 2008,
+          generos: ["Action", "Crime", "Drama"],
+          calificacion: 9.0,
+        },
+      ];
+      misPelis.forEach((peli) => new Pelicula(peli).fichaTecnica());
     </script>
   </body>
 </html>
