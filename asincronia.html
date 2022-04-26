@@ -7,16 +7,40 @@
     <title>Asincronía en javascript</title>
   </head>
   <body>
-    <h1>Asincronía en Javascript</h1>
+    <h1>Asincronía en JavaScript</h1>
     <script>
+      console.log("inicio");
+      //   setTimeout(() => {
+      //     console.log("Ejecutando un setTimeOut, esto se ejecuta una sóla vez");
+      //   }, 1000);
+
+      //   setInterval(() => {
+      //     console.log(
+      //       "Ejecutando un setInterval, esto se ejecuta indefinidamente cada cierto intervalo de tiempo"
+      //     );
+      //   }, 1000);
+
+      //   const temporizador = setTimeout(() => {
+      //     console.log(new Date().toLocaleTimeString());
+      //   }, 1000);
+
+      //   clearTimeout(temporizador);
+      //   console.log("Después del clear");
+
+      const intervalo = setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+      }, 1000);
+
+      clearInterval(intervalo);
+      console.log("Después del clearInterval");
       /*
-     Procesamiento Single thread y Multi thread.
-     Operaciones de CPU y Opereaciones de I/O.
-     Operaciones Concurrentes y Paralelas.
-     Operaciones Bloqueantes y No Bloqueantes.
-     Opereciones Síncronas y Asíncronas.
-     
-    */
+          Procesamiento Single thread y Multi thread.
+          Operaciones de CPU y Opereaciones de I/O.
+          Operaciones Concurrentes y Paralelas.
+          Operaciones Bloqueantes y No Bloqueantes.
+          Opereciones Síncronas y Asíncronas.
+
+      */
 
       /* Código Síncrono Bloqueante */
       (() => {
