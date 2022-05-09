@@ -84,33 +84,88 @@
 
       /* CALLBACKS */
 
-      function cuadradoCallBack(value, callback) {
-        setTimeout(() => {
-          callback(value, value * value);
-        }, 0 | (Math.random() * 1000));
-      }
-      cuadradoCallBack(0, (value, result) => {
-        console.log("Inicia callback");
-        console.log(`Callback: ${value}, ${result}`);
-        cuadradoCallBack(1, (value, result) => {
-          console.log(`Callback: ${value}, ${result}`);
-          cuadradoCallBack(2, (value, result) => {
-            console.log(`Callback: ${value}, ${result}`);
-            cuadradoCallBack(3, (value, result) => {
-              console.log(`Callback: ${value}, ${result}`);
-              cuadradoCallBack(4, (value, result) => {
-                console.log(`Callback: ${value}, ${result}`);
-                cuadradoCallBack(5, (value, result) => {
-                  console.log(`Callback: ${value}, ${result}`);
-                  console.log("Fin del Callback");
-                  console.log("Callback Hell!!!!");
-                  console.log("http://callbackhell.com");
-                });
-              });
+      // function cuadradoCallBack(value, callback) {
+      //   setTimeout(() => {
+      //     callback(value, value * value);
+      //   }, 0 | (Math.random() * 1000));
+      // }
+      // cuadradoCallBack(0, (value, result) => {
+      //   console.log("Inicia callback");
+      //   console.log(`Callback: ${value}, ${result}`);
+      //   cuadradoCallBack(1, (value, result) => {
+      //     console.log(`Callback: ${value}, ${result}`);
+      //     cuadradoCallBack(2, (value, result) => {
+      //       console.log(`Callback: ${value}, ${result}`);
+      //       cuadradoCallBack(3, (value, result) => {
+      //         console.log(`Callback: ${value}, ${result}`);
+      //         cuadradoCallBack(4, (value, result) => {
+      //           console.log(`Callback: ${value}, ${result}`);
+      //           cuadradoCallBack(5, (value, result) => {
+      //             console.log(`Callback: ${value}, ${result}`);
+      //             console.log("Fin del Callback");
+      //             console.log("Callback Hell!!!!");
+      //             console.log("http://callbackhell.com");
+      //           });
+      //         });
+      //       });
+      //     });
+      //   });
+      // });
+
+      /* PROMESAS */
+
+      function cuadradoPromise(value) {
+        if (typeof value !== "number")
+          return Promise.reject(`Error el valor ${value} introducido 
+        no es un número`);
+
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({
+              value,
+              result: value * value,
             });
-          });
+          }, 0 | (Math.random() * 1000));
         });
-      });
+      }
+
+      cuadradoPromise(0)
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+          return cuadradoPromise(1);
+        })
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+          return cuadradoPromise(2);
+        })
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+          return cuadradoPromise(3);
+        })
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+          return cuadradoPromise(4);
+        })
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+          return cuadradoPromise(5);
+        })
+        .then((data) => {
+          console.log(
+            `El cuadrado del númnero ${data.value} es ${data.result}`
+          );
+        })
+        .catch((error) => console.error(error));
     </script>
   </body>
 </html>
