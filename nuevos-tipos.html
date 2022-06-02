@@ -232,50 +232,84 @@
 
       /********************* Generators ***************************/
 
-      function* iterable() {
-        yield "hola";
-        console.log("Hola consola");
-        yield "hola 2";
-        console.log("Seguimos con más instrucciones de nuestro código");
-        yield "hola 3";
-        yield "hola 4";
-      }
+      // function* iterable() {
+      //   yield "hola";
+      //   console.log("Hola consola");
+      //   yield "hola 2";
+      //   console.log("Seguimos con más instrucciones de nuestro código");
+      //   yield "hola 3";
+      //   yield "hola 4";
+      // }
 
-      const iterador = iterable();
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
+      // const iterador = iterable();
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
 
-      for (let yield of iterador) {
-        console.log(yield);
-      }
+      // for (let yield of iterador) {
+      //   console.log(yield);
+      // }
 
-      const arr = [...iterable()];
-      console.log(arr);
+      // const arr = [...iterable()];
+      // console.log(arr);
 
-      function cuadrado(valor) {
-        setTimeout(() => {
-          return console.log({ valor, resultado: valor * valor });
-        }, Math.random() * 1000);
-      }
+      // function cuadrado(valor) {
+      //   setTimeout(() => {
+      //     return console.log({ valor, resultado: valor * valor });
+      //   }, Math.random() * 1000);
+      // }
 
-      function* generador() {
-        console.log("Inicia Generator");
-        yield cuadrado(0);
-        yield cuadrado(1);
-        yield cuadrado(2);
-        yield cuadrado(3);
-        yield cuadrado(4);
-        yield cuadrado(5);
-        console.log("Termina Generator");
-      }
+      // function* generador() {
+      //   console.log("Inicia Generator");
+      //   yield cuadrado(0);
+      //   yield cuadrado(1);
+      //   yield cuadrado(2);
+      //   yield cuadrado(3);
+      //   yield cuadrado(4);
+      //   yield cuadrado(5);
+      //   console.log("Termina Generator");
+      // }
 
-      const gen = generador();
-      for (let yield of gen) {
-        console.log(yield);
-      }
+      // const gen = generador();
+      // for (let yield of gen) {
+      //   console.log(yield);
+      // }
+
+      /************************* Proxies ***************************/
+
+      const persona = {
+        nombre: "",
+        apellido: "",
+        edad: 0,
+      };
+
+      const manejador = {
+        set(obj, prop, valor) {
+          if (Object.keys(obj).indexOf(prop) === -1) {
+            return console.error(
+              `La propiedad ${prop} no existe en el objeto persona`
+            );
+          }
+          if (
+            (prop === "nombre" || prop === "apellido") &&
+            !/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/g.test(valor)
+          ) {
+            return console.error(
+              `La propiedad ${prop} solo acepta  letras y espacios en blanco`
+            );
+          }
+          obj[prop] = valor;
+        },
+      };
+
+      const carlosj = new Proxy(persona, manejador);
+      carlosj.nombre = "Carlos Javier";
+      carlosj.apellido = "Lozano";
+      carlosj.edad = 35;
+      carlosj.twitter = "@carlosj";
+      console.log(carlosj);
     </script>
   </body>
 </html>
