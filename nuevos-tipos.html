@@ -205,29 +205,76 @@
 
       /********************* Iterables & Iterators ***************************/
 
-      const iterable = [1, 2, 3, 4, 5];
-      // const iterable = "Hola Mundo";
-      // const iterable = new Set([1, 2, 3, 3, 4, 5]);
-      // const iterable = new Map([
-      //   ["nombre", "jon"],
-      //   ["edad", 35],
-      // ]);
+      // const iterable = [1, 2, 3, 4, 5];
+      // // const iterable = "Hola Mundo";
+      // // const iterable = new Set([1, 2, 3, 3, 4, 5]);
+      // // const iterable = new Map([
+      // //   ["nombre", "jon"],
+      // //   ["edad", 35],
+      // // ]);
 
-      // Accedemos al iterador del iterable
-      const iterador = iterable[Symbol.iterator]();
-      console.log(iterable);
-      console.log(iterador);
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      // console.log(iterador.next());
-      let next = iterador.next();
+      // // Accedemos al iterador del iterable
+      // const iterador = iterable[Symbol.iterator]();
+      // console.log(iterable);
+      // console.log(iterador);
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // // console.log(iterador.next());
+      // let next = iterador.next();
 
-      while (!next.done) {
-        console.log(next.value);
-        next = iterador.next();
+      // while (!next.done) {
+      //   console.log(next.value);
+      //   next = iterador.next();
+      // }
+
+      /********************* Generators ***************************/
+
+      function* iterable() {
+        yield "hola";
+        console.log("Hola consola");
+        yield "hola 2";
+        console.log("Seguimos con más instrucciones de nuestro código");
+        yield "hola 3";
+        yield "hola 4";
+      }
+
+      const iterador = iterable();
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+
+      for (let yield of iterador) {
+        console.log(yield);
+      }
+
+      const arr = [...iterable()];
+      console.log(arr);
+
+      function cuadrado(valor) {
+        setTimeout(() => {
+          return console.log({ valor, resultado: valor * valor });
+        }, Math.random() * 1000);
+      }
+
+      function* generador() {
+        console.log("Inicia Generator");
+        yield cuadrado(0);
+        yield cuadrado(1);
+        yield cuadrado(2);
+        yield cuadrado(3);
+        yield cuadrado(4);
+        yield cuadrado(5);
+        console.log("Termina Generator");
+      }
+
+      const gen = generador();
+      for (let yield of gen) {
+        console.log(yield);
       }
     </script>
   </body>
