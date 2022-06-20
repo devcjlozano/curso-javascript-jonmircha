@@ -285,7 +285,7 @@
         edad: 0,
       };
 
-      const manejador = {
+      /*    const manejador = {
         set(obj, prop, valor) {
           if (Object.keys(obj).indexOf(prop) === -1) {
             return console.error(
@@ -302,14 +302,30 @@
           }
           obj[prop] = valor;
         },
-      };
+      }; */
 
-      const carlosj = new Proxy(persona, manejador);
+      /* const carlosj = new Proxy(persona, manejador);
       carlosj.nombre = "Carlos Javier";
       carlosj.apellido = "Lozano";
       carlosj.edad = 35;
       carlosj.twitter = "@carlosj";
-      console.log(carlosj);
+      console.log(carlosj); */
+
+      /********************** Propiedades dinámicas de los objetos ************************/
+
+      const aleatorio = Math.round(Math.random() * 100 + 5);
+
+      const objUsuarios = {
+        propiedad: "Valor",
+        [`id_${aleatorio}`]: "Valor Aleatorio",
+      };
+      const usuarios = ["Carlosj", "Irma", "Miguel", "Kala", "Cosmo"];
+      console.log(objUsuarios);
+
+      usuarios.forEach(
+        (usuario, index) => (objUsuarios[`id_${index}`] = usuario)
+      );
+      console.log(objUsuarios);
     </script>
   </body>
 </html>
