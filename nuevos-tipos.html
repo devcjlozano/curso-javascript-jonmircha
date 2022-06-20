@@ -313,7 +313,7 @@
 
       /********************** Propiedades dinámicas de los objetos ************************/
 
-      const aleatorio = Math.round(Math.random() * 100 + 5);
+      /* const aleatorio = Math.round(Math.random() * 100 + 5);
 
       const objUsuarios = {
         propiedad: "Valor",
@@ -325,7 +325,63 @@
       usuarios.forEach(
         (usuario, index) => (objUsuarios[`id_${index}`] = usuario)
       );
-      console.log(objUsuarios);
+      console.log(objUsuarios); */
+
+      /*******************************  this *******************************************/
+
+      console.log(this);
+      console.log(window);
+      console.log(this === window);
+
+      this.nombre = "Contexto Global";
+      console.log(this.nombre);
+
+      function imprimir() {
+        console.log(this.nombre);
+      }
+
+      {
+        // Bloque
+      }
+
+      imprimir();
+
+      const obj = {
+        nombre: "Contexto Objeto",
+        imprimir: function () {
+          console.log(this.nombre);
+        },
+      };
+
+      const obj2 = {
+        nombre: "Contexto Objeto 2",
+        imprimir,
+      };
+
+      const obj3 = {
+        nombre: "Contexto Objeto",
+        imprimir: () => {
+          console.log(this.nombre);
+        },
+      };
+
+      obj.imprimir();
+      obj2.imprimir();
+      obj3.imprimir();
+
+      function Persona(nombre) {
+        this.nombre = nombre;
+
+        // return console.log(this.nombre);
+        /* return function () {
+          console.log(this.nombre);
+        }; */
+
+        return () => console.log(this.nombre);
+      }
+
+      let carlosj = new Persona("carlosj");
+      carlosj();
     </script>
   </body>
 </html>
