@@ -279,11 +279,11 @@
 
       /************************* Proxies ***************************/
 
-      const persona = {
+      /*       const persona = {
         nombre: "",
         apellido: "",
         edad: 0,
-      };
+      }; */
 
       /*    const manejador = {
         set(obj, prop, valor) {
@@ -329,7 +329,7 @@
 
       /*******************************  this *******************************************/
 
-      console.log(this);
+      /* console.log(this);
       console.log(window);
       console.log(this === window);
 
@@ -377,11 +377,48 @@
           console.log(this.nombre);
         }; */
 
-        return () => console.log(this.nombre);
+      // return () => console.log(this.nombre);
+      // }
+
+      /*  let carlosj = new Persona("carlosj");
+      carlosj();  */
+
+      /******************************* CALL, APPLY, BIND ************************************/
+
+      console.log(this);
+      this.lugar = "Contexto global";
+
+      function saludar(saludo, aQuien) {
+        console.log(`${saludo} ${aQuien} desde ${this.lugar}`);
       }
 
-      let carlosj = new Persona("carlosj");
-      carlosj();
+      saludar("Hola", "Cosmo");
+
+      const obj = {
+        lugar: "Contexto Objeto",
+      };
+
+      saludar.call(obj, "Hola", "Carlosj");
+      saludar.call(null, "Hola", "Carlosj");
+      saludar.apply(obj, ["Hola", "Carlosj"]);
+      saludar.apply(null, ["Hola", "Carlosj"]);
+
+      this.nombre = "Window";
+
+      const persona = {
+        nombre: "Carlos Javier",
+        saludar: function () {
+          console.log("Hola", this.nombre);
+        },
+      };
+
+      persona.saludar();
+
+      const otraPersona = {
+        saludar: persona.saludar.bind(this),
+      };
+
+      otraPersona.saludar();
     </script>
   </body>
 </html>
