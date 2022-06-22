@@ -7,7 +7,7 @@ const hablar = (texto) =>
 
 hablar(texto); */
 
-console.log("************ Elementos del documento **************");
+/* console.log("************ Elementos del documento **************");
 console.log(document);
 console.log(document.head);
 console.log(document.body);
@@ -23,4 +23,19 @@ console.log(document.scripts);
 setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
-document.write("<h2> Hola mundo desde el DOM </h2>");
+document.write("<h2> Hola mundo desde el DOM </h2>"); */
+
+console.log(document.getElementsByTagName("li"));
+console.log(document.getElementsByClassName("card"));
+console.log(document.getElementsByName("nombre"));
+console.log(document.getElementById("menu"));
+
+/* Los tres primero selectores han sido sustituidos por el querySelector.
+El querySelector va más lento que el getElementById ya que analiza si es o no una id*/
+console.log(document.querySelector("#menu"));
+console.log(document.querySelector("a"));
+console.log(document.querySelectorAll("a"));
+document.querySelectorAll("a").forEach((el) => console.log(el));
+console.log(document.querySelector(".card"));
+console.log(document.querySelectorAll(".card")[2]);
+console.log(document.querySelectorAll("#menu li"));
