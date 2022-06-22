@@ -24,18 +24,50 @@ setTimeout(() => {
   console.log(document.getSelection().toString());
 }, 3000);
 document.write("<h2> Hola mundo desde el DOM </h2>"); */
-
+/* 
 console.log(document.getElementsByTagName("li"));
 console.log(document.getElementsByClassName("card"));
 console.log(document.getElementsByName("nombre"));
-console.log(document.getElementById("menu"));
+console.log(document.getElementById("menu")); */
 
 /* Los tres primero selectores han sido sustituidos por el querySelector.
 El querySelector va más lento que el getElementById ya que analiza si es o no una id*/
-console.log(document.querySelector("#menu"));
+/* console.log(document.querySelector("#menu"));
 console.log(document.querySelector("a"));
 console.log(document.querySelectorAll("a"));
 document.querySelectorAll("a").forEach((el) => console.log(el));
 console.log(document.querySelector(".card"));
 console.log(document.querySelectorAll(".card")[2]);
-console.log(document.querySelectorAll("#menu li"));
+console.log(document.querySelectorAll("#menu li")); */
+
+console.log(document.documentElement.lang);
+console.log(document.documentElement.getAttribute("lang"));
+console.log(document.querySelector(".link-dom").href);
+console.log(document.querySelector(".link-dom").getAttribute("href"));
+
+document.documentElement.lang = "en";
+console.log(document.documentElement.lang);
+document.documentElement.setAttribute("lang", "es-MX");
+console.log(document.documentElement.lang);
+
+const $linkDOM = document.querySelector(".link-dom");
+
+$linkDOM.setAttribute("target", "_blank");
+$linkDOM.setAttribute("rel", "noopener");
+$linkDOM.setAttribute("href", "https://youtube.com/jonmircha");
+console.log($linkDOM.hasAttribute("rel"));
+$linkDOM.removeAttribute("rel");
+console.log($linkDOM.hasAttribute("rel"));
+
+// Data-Atributtes
+
+console.log($linkDOM.getAttribute("data-description"));
+console.log($linkDOM.dataset);
+console.log($linkDOM.dataset.description);
+$linkDOM.setAttribute("data-description", "Modelo de Objeto del documento");
+console.log($linkDOM.dataset.description);
+$linkDOM.dataset.description = "Suscríbete al canal de Jon Mirha y comparte";
+console.log($linkDOM.dataset.description);
+console.log($linkDOM.hasAttribute("data-id"));
+$linkDOM.removeAttribute("data-id");
+console.log($linkDOM.hasAttribute("data-id"));
