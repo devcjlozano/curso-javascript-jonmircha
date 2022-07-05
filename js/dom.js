@@ -74,7 +74,7 @@ console.log($linkDOM.hasAttribute("data-id")); */
 
 // DOM: ESTILOS y VARIABLES CSS
 
-const $linkDOM = document.querySelector(".link-dom");
+/* const $linkDOM = document.querySelector(".link-dom");
 
 console.log($linkDOM.style);
 console.log($linkDOM.style.backgroundColor);
@@ -91,11 +91,11 @@ $linkDOM.style.marginRight = "auto";
 $linkDOM.style.padding = "1rem";
 $linkDOM.style.borderRadius = ".5rem";
 
-console.log($linkDOM.style);
+console.log($linkDOM.style); */
 
 // Variables CSS - Custom Properties CSS
 
-const $html = document.documentElement;
+/* const $html = document.documentElement;
 $body = document.body;
 
 let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
@@ -109,4 +109,26 @@ $body.style.color = varYellowColor;
 $html.style.setProperty("--dark-color", "#000");
 varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 
-$body.style.setProperty("background-color", varDarkColor);
+$body.style.setProperty("background-color", varDarkColor); */
+
+// DOM: Clases css
+
+const $card = document.querySelector(".card");
+
+console.log($card);
+console.log($card.className);
+console.log($card.classList);
+console.log($card.classList.contains("rotate-45"));
+$card.classList.add("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.remove("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"));
+$card.classList.toggle("rotate-45");
+$card.classList.replace("rotate-45", "rotate-135");
+$card.classList.add("opacity-80", "sepia");
+$card.classList.remove("opacity-80", "sepia");
+$card.classList.toggle("opacity-80", "sepia");
