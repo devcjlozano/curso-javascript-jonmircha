@@ -257,7 +257,7 @@ document.body.appendChild($ul3); */
 
 // DOM: Templates HTML
 
-const $cards = document.querySelector(".cards");
+/* const $cards = document.querySelector(".cards");
 const $template = document.getElementById("template-card").content;
 const $fragment = document.createDocumentFragment();
 
@@ -293,4 +293,23 @@ cardContent.forEach((el) => {
   $fragment.appendChild($clone);
 });
 
-$cards.appendChild($fragment);
+$cards.appendChild($fragment); */
+
+// DOM: Modificando elementos (old style)
+
+const $cards = document.querySelector(".cards");
+const $newCard = document.createElement("figure");
+const $cloneCards = $cards.cloneNode(true);
+
+$newCard.innerHTML = `
+  <img src="https://placeimg.com/200/200/any" alt="Any">
+  <figCaption>Any</figCaption>
+`;
+
+$newCard.classList.add("card");
+
+//$cards.replaceChild($newCard, $cards.children[2]);
+//$cards.removeChild($cards.lastElementChild);
+// $cards.insertBefore($newCard, $cards.firstElementChild);
+
+document.body.appendChild($cloneCards);
