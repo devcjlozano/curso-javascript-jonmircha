@@ -329,7 +329,7 @@ document.body.appendChild($cloneCards); */
     afterend(hermano siguiente)
 */
 
-const $cards = document.querySelector(".cards");
+/* const $cards = document.querySelector(".cards");
 const $newCard = document.createElement("figure");
 
 let $contentCard = `
@@ -348,4 +348,29 @@ $cards.insertAdjacentElement("afterend", $newCard); */
 // $cards.prepend($newCard);
 // $cards.before($newCard);
 // $cards.append($newCard);
-$cards.after($newCard);
+// $cards.after($newCard); */
+
+/*************** DOM: Manejadores de eventos ********************/
+
+function holaMundo() {
+  alert("Hola mundo");
+  console.log(event);
+}
+
+const $eventoSemantico = document.getElementById("eventoSemantico");
+const $eventoMultiple = document.getElementById("evento-multiple");
+
+$eventoSemantico.onclick = holaMundo;
+$eventoSemantico.onclick = function (e) {
+  alert("Hola mundo manejador de eventos semántico");
+  console.log(e);
+  console.log(event);
+};
+
+$eventoMultiple.addEventListener("click", holaMundo);
+$eventoMultiple.addEventListener("click", (e) => {
+  alert("Hola mundo manejador de eventos múltiple");
+  console.log(e.type);
+  console.log(e.target);
+  console.log(e);
+});
