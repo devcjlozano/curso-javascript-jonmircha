@@ -398,22 +398,31 @@ $eventoRemover.addEventListener("dblclick", removerDobleClick); */
 /*************** DOM: Flujo de eventos (Burbuja y captura)  ********************/
 
 const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+const $linksEventos = document.querySelectorAll(".eventos-flujo a");
 
 function flujoEventos(e) {
   console.log(
     `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
   );
+  e.stopPropagation();
 }
 
 console.log($divsEventos);
-
 $divsEventos.forEach((div) => {
   // Fase de burbuja
-  // div.addEventListener("click", flujoEventos);
+  div.addEventListener("click", flujoEventos);
   // Fase de captura
   //div.addEventListener("click", flujoEventos, true);
-  div.addEventListener("click", flujoEventos, {
+  /*div.addEventListener("click", flujoEventos, {
     capture: false,
-    once: true,
+    once: true, 
+  });*/
+});
+
+$linksEventos.forEach((a) => {
+  a.addEventListener("click", (e) => {
+    alert("hola soy carlos j");
+    e.preventDefault();
+    e.stopPropagation();
   });
 });
