@@ -395,34 +395,49 @@ const removerDobleClick = (e) => {
 
 $eventoRemover.addEventListener("dblclick", removerDobleClick); */
 
-/*************** DOM: Flujo de eventos (Burbuja y captura)  ********************/
+/***************** 
+  DOM: Flujo de eventos (Burbuja y captura),
+  DOM: stop propagation & preventDefault,
+  DOM: Delegación de eventos  ********************/
 
-const $divsEventos = document.querySelectorAll(".eventos-flujo div");
-const $linksEventos = document.querySelectorAll(".eventos-flujo a");
+/* const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+const $linksEventos = document.querySelectorAll(".eventos-flujo a"); */
 
 function flujoEventos(e) {
   console.log(
-    `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+    `Hola te saluda ${this}, el click lo originó ${e.target.className}`
   );
   e.stopPropagation();
 }
 
-console.log($divsEventos);
-$divsEventos.forEach((div) => {
-  // Fase de burbuja
-  div.addEventListener("click", flujoEventos);
-  // Fase de captura
-  //div.addEventListener("click", flujoEventos, true);
-  /*div.addEventListener("click", flujoEventos, {
+document.addEventListener("click", (e) => {
+  console.log("Click en", e.target);
+
+  if (e.target.matches(".eventos-flujo div")) {
+    flujoEventos(e);
+  }
+  if (e.target.matches(".eventos-flujo a")) {
+    alert("Hola soy carlosj");
+    e.preventDefault();
+  }
+});
+
+// $divsEventos.forEach((div) => {
+// Fase de burbuja
+// div.addEventListener("click", flujoEventos);
+// Fase de captura
+//div.addEventListener("click", flujoEventos, true);
+/*div.addEventListener("click", flujoEventos, {
     capture: false,
     once: true, 
   });*/
-});
+//});
 
-$linksEventos.forEach((a) => {
+/* $linksEventos.forEach((a) => {
   a.addEventListener("click", (e) => {
     alert("hola soy carlos j");
     e.preventDefault();
     e.stopPropagation();
   });
 });
+ */
