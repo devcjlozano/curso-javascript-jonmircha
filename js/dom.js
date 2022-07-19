@@ -352,7 +352,7 @@ $cards.insertAdjacentElement("afterend", $newCard); */
 
 /*************** DOM: Manejadores de eventos ********************/
 
-function holaMundo() {
+/* function holaMundo() {
   alert("Hola mundo");
   console.log(event);
 }
@@ -393,4 +393,27 @@ const removerDobleClick = (e) => {
   $eventoRemover.disabled = true;
 };
 
-$eventoRemover.addEventListener("dblclick", removerDobleClick);
+$eventoRemover.addEventListener("dblclick", removerDobleClick); */
+
+/*************** DOM: Flujo de eventos (Burbuja y captura)  ********************/
+
+const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+
+function flujoEventos(e) {
+  console.log(
+    `Hola te saluda ${this.className}, el click lo originó ${e.target.className}`
+  );
+}
+
+console.log($divsEventos);
+
+$divsEventos.forEach((div) => {
+  // Fase de burbuja
+  // div.addEventListener("click", flujoEventos);
+  // Fase de captura
+  //div.addEventListener("click", flujoEventos, true);
+  div.addEventListener("click", flujoEventos, {
+    capture: false,
+    once: true,
+  });
+});
